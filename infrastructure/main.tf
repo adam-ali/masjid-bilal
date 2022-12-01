@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    encrypt        = true
-    bucket         = "masjid-bilal-terraform-remote-state-storage-s3"
-    region         = "eu-west-2"
+    encrypt = true
+    bucket  = "masjid-bilal-terraform-remote-state-storage-s3"
+    region  = "eu-west-2"
     profile = "MasjidBilal"
-    key            = "masjid-bilal/terraform.tfstate"
+    key     = "masjid-bilal/terraform.tfstate"
   }
 }
 
