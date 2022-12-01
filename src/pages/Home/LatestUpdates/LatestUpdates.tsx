@@ -11,9 +11,7 @@ const LatestUpdatesCard = () => {
           Our Tafseer classes take place every Friday after Isha, where we go through the meaning of the 30th Juz.
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      <CardActions>{/* <Button size="small">Learn More</Button> */}</CardActions>
     </Card>
   )
 }

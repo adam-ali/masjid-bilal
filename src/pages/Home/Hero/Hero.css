@@ -1,0 +1,14 @@
+.hero-img {
+  /* position: relative; */
+  /* background: url('../../../assets/MasjideBilal.jpeg'); */
+  width: 100%;
+  /* background-image: linear-gradient(rbg(0, 0, 0, 0.5)); */
+  text-align: center;
+  color: white;
+}
+.image-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
