@@ -12,7 +12,7 @@ const Hero = (props: Props) => {
         {/* <div className="hero-img">
         <p className="image-txt">text</p>
       </div> */}
-        <Image src={MasjideBilal} style={{ borderRadius: 5 }} easing="ease" fit="cover" />
+        <Image src={MasjideBilal} easing="ease" fit="cover" />
       </Box>
     </>
   )

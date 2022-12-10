@@ -54,20 +54,21 @@ const SalahTimes = (props: Props) => {
           alignItems: 'center'
         }}
       >
-        <Typography variant="h6" sx={{ pr: '10px', fontWeight: 'bold' }}>
-          JUMMAH
-        </Typography>
         <div>
           <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-            First
+            First Jummah
           </Typography>
-          <Typography variant="body1">Bayaan 12:00 Salah 12:30</Typography>
+          <Typography variant="body1">
+            Bayaan 12:00 <br /> Salah 12:30
+          </Typography>
         </div>
         <div>
           <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-            Second
+            Second Jummah
           </Typography>
-          <Typography variant="body1">Bayaan 1:00 Salah 1:30</Typography>
+          <Typography variant="body1">
+            Bayaan 1:00 <br /> Salah 1:30
+          </Typography>
         </div>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }} className="green-header">

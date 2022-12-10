@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import MosqueIcon from '@mui/icons-material/Mosque'
 import { Container, Grid } from '@mui/material'
+import MasjideBilal from '../../../assets/mbilal.png'
 
 interface Props {
   /**
@@ -59,22 +60,23 @@ export default function DrawerAppBar(props: Props) {
       <AppBar component="nav" position="static">
         <Container maxWidth="md" sx={{ px: '0' }}>
           <Toolbar>
+            <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+              <Typography variant="h6" component="span" sx={{ mr: 1, fontWeight: 'bold' }}>
+                Masjid Bilal
+                {/* <img src={MasjideBilal} width="200" /> */}
+              </Typography>
+              <MosqueIcon />
+            </Grid>
+
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: 'none' } }}
+              sx={{ display: { sm: 'none' } }}
             >
               <MenuIcon />
             </IconButton>
-            <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              <Typography variant="h6" component="span" sx={{ mr: 1, fontWeight: 'bold' }}>
-                Masjid Bilal
-              </Typography>
-              <MosqueIcon />
-            </Grid>
-
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
                 <Button key={item} sx={{ color: '#fff' }}>
@@ -89,6 +91,7 @@ export default function DrawerAppBar(props: Props) {
         <Drawer
           container={container}
           variant="temporary"
+          anchor="right"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{

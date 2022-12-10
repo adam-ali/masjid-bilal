@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material'
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: 'grey', color: 'white', px: '20px', py: '10px', borderRadius: '5px' }}>
+    <Box sx={{ bgcolor: 'grey', color: 'white', px: '20px', py: '10px' }}>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         CONTACT US
       </Typography>
