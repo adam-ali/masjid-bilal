@@ -14,6 +14,8 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import MosqueIcon from '@mui/icons-material/Mosque'
 import { Container, Grid } from '@mui/material'
+import { useRouter } from 'next/router'
+// import second from '../../../public/'
 
 interface Props {
   /**
@@ -24,10 +26,15 @@ interface Props {
 }
 
 const drawerWidth = 240
-const navItems = ['Home', 'About', 'Contact']
+const navItems = [
+  { name: 'Home', route: '/' },
+  { name: 'About', route: 'about' },
+  { name: 'Contact', route: 'contact' }
+]
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props
+  const router = useRouter()
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
   const handleDrawerToggle = () => {
@@ -42,9 +49,9 @@ export default function DrawerAppBar(props: Props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => router.push(item.route)}>
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -62,7 +69,7 @@ export default function DrawerAppBar(props: Props) {
             <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
               <Typography variant="h6" component="span" sx={{ mr: 1, fontWeight: 'bold' }}>
                 Masjid Bilal
-                {/* <img src={MasjideBilal} width="200" /> */}
+                {/* <Image src={MasjideBilal} layout="responsive" alt="Masjid Bilal" /> */}
               </Typography>
               <MosqueIcon />
             </Grid>
@@ -78,8 +85,8 @@ export default function DrawerAppBar(props: Props) {
             </IconButton>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
+                <Button key={item.name} sx={{ color: '#fff' }} onClick={() => router.push(item.route)}>
+                  {item.name}
                 </Button>
               ))}
             </Box>
