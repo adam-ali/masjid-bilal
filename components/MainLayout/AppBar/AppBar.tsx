@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import MosqueIcon from '@mui/icons-material/Mosque'
 import { Container, Grid } from '@mui/material'
-import MasjideBilal from '../../../assets/mbilal.png'
 
 interface Props {
   /**

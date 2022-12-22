@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["Fajr", "Isha", "Maghrib"]
+  "cSpell.words": [
+    "Fajr",
+    "Isha",
+    "Maghrib"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
