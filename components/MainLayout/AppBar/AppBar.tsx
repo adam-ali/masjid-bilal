@@ -15,7 +15,8 @@ import Button from '@mui/material/Button'
 import MosqueIcon from '@mui/icons-material/Mosque'
 import { Container, Grid } from '@mui/material'
 import { useRouter } from 'next/router'
-// import second from '../../../public/'
+import MasjideBilal from '../../../public/Masjid_Bilal_Logo.png'
+import Image from 'next/image'
 
 interface Props {
   /**
@@ -67,11 +68,13 @@ export default function DrawerAppBar(props: Props) {
         <Container maxWidth="md" sx={{ px: '0' }}>
           <Toolbar>
             <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              <Typography variant="h6" component="span" sx={{ mr: 1, fontWeight: 'bold' }}>
-                Masjid Bilal
-                {/* <Image src={MasjideBilal} layout="responsive" alt="Masjid Bilal" /> */}
-              </Typography>
-              <MosqueIcon />
+              <Image
+                src={MasjideBilal}
+                onClick={() => router.push('/')}
+                className="cursor-pointer"
+                width={200}
+                alt="Masjid Bilal"
+              />
             </Grid>
 
             <IconButton

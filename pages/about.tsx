@@ -16,14 +16,14 @@ function about(props: PropsWithChildren) {
         Islamic education for the children of the Muslim community.
       </Typography>
 
-      <Typography>
+      {/* <Typography>
         Our three key objectives are: • To advance the understanding and practices of the Islamic faith in accordance of
         the Quran, Hadith and Sunnah of the prophet Muhammad (Sallallahu Alaiyhi Wassallam) • Provide suitable religious
         education for the Muslim and non-Muslim community of Prestwich. • Provide materials and accommodation where the
         religious aspirations of the Muslim community can be catered for The centre currently consists of one building;
         the Masjid which is utilised for daily worship and prayers, children’s educational classes and a whole host of
         other activities.
-      </Typography>
+      </Typography> */}
     </>
   )
 }
