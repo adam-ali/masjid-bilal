@@ -3,7 +3,7 @@ import LatestUpdates from '../components/Home/LatestUpdates/LatestUpdates'
 import SalahTimes from '../components/Home/SalahTimes/SalahTimes'
 import React from 'react'
 
-function App() {
+function App(props: {}) {
   return (
     <>
       <div className="app">

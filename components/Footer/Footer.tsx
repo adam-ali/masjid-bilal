@@ -1,8 +1,9 @@
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: 'grey', color: 'white', px: '20px', py: '10px' }}>
+    <Box sx={{ bgcolor: 'primary.main', color: 'white', px: '20px', py: '10px' }}>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         CONTACT US
       </Typography>
