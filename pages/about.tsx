@@ -10,7 +10,7 @@ function about({}: {}) {
         </Typography>
       </Box>
       <div className="px-2">
-        <section className="mb-5">
+        <section className="mb-10">
           <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
             OUR HISTORY
           </Typography>
@@ -23,7 +23,7 @@ function about({}: {}) {
             Islamic education for the children of the Muslim community.
           </Typography>
         </section>
-        <section className="mb-5">
+        <section className="mb-10">
           <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
             OUR OBJECTIVES
           </Typography>
@@ -71,7 +71,7 @@ function about({}: {}) {
             </Grid>
           </div>
         </section>
-        <section>
+        <section className="mb-5">
           <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
             OUR CENTER
           </Typography>
