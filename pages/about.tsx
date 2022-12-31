@@ -5,13 +5,13 @@ function about({}: {}) {
   return (
     <>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }} className="green-header">
-        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h6">
+        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h1">
           ABOUT US
         </Typography>
       </Box>
       <div className="px-2">
         <section className="mb-10">
-          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
+          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h2">
             OUR HISTORY
           </Typography>
           <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px', mb: 3 }} />
@@ -24,7 +24,7 @@ function about({}: {}) {
           </Typography>
         </section>
         <section className="mb-10">
-          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
+          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h2">
             OUR OBJECTIVES
           </Typography>
           <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px', mb: 3 }} />
@@ -72,7 +72,7 @@ function about({}: {}) {
           </div>
         </section>
         <section className="mb-5">
-          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h1">
+          <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h2">
             OUR CENTER
           </Typography>
           <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px', mb: 3 }} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Paper, Table, TableBody, TableContainer, TableHead, Typography } from '@mui/material'
+import { Box, Divider, Paper, Table, TableBody, TableContainer, TableHead, Typography } from '@mui/material'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
@@ -9,8 +9,9 @@ type Props = {}
 
 var today = new Date()
 var dd = String(today.getDate())
+var mm = String(today.getMonth() + 1)
 const todaysData = TimeTable.find((i) => {
-  if (i.Date === dd) {
+  if (i.Date === dd && i.Month === mm) {
     return i
   }
 })
@@ -72,11 +73,12 @@ const SalahTimes = (props: Props) => {
           </Typography>
         </div>
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }} className="green-header">
-        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h6">
+      <Box sx={{ display: 'flex', mx: '10px', my: '10px', mt: '20px', justifyContent: 'space-between' }}>
+        <Typography sx={{ color: 'secondary.main' }} variant="h2">
           SALAH TIMES
+          <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px' }} />
         </Typography>
-        <Typography color={'white'} align={'right'} variant="h6">
+        <Typography color={'primary.main'} align={'right'} variant="h2">
           {today.toDateString()}
         </Typography>
       </Box>
