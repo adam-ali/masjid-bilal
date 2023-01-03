@@ -19,10 +19,9 @@ const LatestUpdatesCard = () => {
 const LatestUpdates = (props: Props) => {
   return (
     <>
-      <Box sx={{ mt: '30px', mx: '10px', my: '10px' }}>
-        <Typography sx={{ color: 'secondary.main' }} variant="h2">
+      <Box sx={{ bgcolor: 'secondary.main', mt: '30px', p: '16px' }}>
+        <Typography color={'white'} variant="h2">
           EVENTS
-          <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '112px' }} />
         </Typography>
       </Box>
 

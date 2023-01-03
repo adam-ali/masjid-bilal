@@ -30,7 +30,3 @@ a {
 .content-wrapper {
   min-height: calc(100vh - 290px);
 }
-.green-header {
-  background-color: #1b4805;
-  padding: 10px 20px;
-}

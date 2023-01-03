@@ -3,8 +3,8 @@ import { Box, Typography } from '@mui/material'
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: 'primary.main', color: 'white', px: '20px', py: '10px' }}>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+    <Box sx={{ bgcolor: 'primary.main', color: 'white', p: '16px' }}>
+      <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
         CONTACT US
       </Typography>
       <br />

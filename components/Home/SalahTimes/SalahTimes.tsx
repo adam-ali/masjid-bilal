@@ -49,36 +49,30 @@ const SalahTimes = (props: Props) => {
       <Box
         sx={{
           bgcolor: '#EDEDED',
-          px: '20px',
-          py: '10px',
+          p: '16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
         <div>
-          <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-            First Jummah
-          </Typography>
+          <Typography variant="h2">First Jummah</Typography>
           <Typography variant="body1">
             Bayaan 12:00 <br /> Salah 12:30
           </Typography>
         </div>
         <div>
-          <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-            Second Jummah
-          </Typography>
+          <Typography variant="h2">Second Jummah</Typography>
           <Typography variant="body1">
             Bayaan 1:00 <br /> Salah 1:30
           </Typography>
         </div>
       </Box>
-      <Box sx={{ display: 'flex', mx: '10px', my: '10px', mt: '20px', justifyContent: 'space-between' }}>
-        <Typography sx={{ color: 'secondary.main' }} variant="h2">
+      <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
+        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h2">
           SALAH TIMES
-          <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px' }} />
         </Typography>
-        <Typography color={'primary.main'} align={'right'} variant="h2">
+        <Typography color={'white'} variant="h3">
           {today.toDateString()}
         </Typography>
       </Box>

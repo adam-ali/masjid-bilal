@@ -4,12 +4,12 @@ import React from 'react'
 function about({}: {}) {
   return (
     <>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }} className="green-header">
-        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h1">
+      <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
+        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h2">
           ABOUT US
         </Typography>
       </Box>
-      <div className="px-2">
+      <Box sx={{ p: '16px' }}>
         <section className="mb-10">
           <Typography sx={{ mt: 2, mb: 1, color: 'secondary.main' }} variant="h2">
             OUR HISTORY
@@ -81,7 +81,7 @@ function about({}: {}) {
             children’s educational classes and a whole host of other activities.
           </Typography>
         </section>
-      </div>
+      </Box>
     </>
   )
 }
