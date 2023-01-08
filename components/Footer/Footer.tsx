@@ -8,11 +8,12 @@ const Footer = () => {
         CONTACT US
       </Typography>
       <br />
-      <Typography variant="body1">52 Bury old Road</Typography>
+      <Typography variant="body1">52 Bury Old Road</Typography>
       <Typography>Prestwich</Typography>
-      <Typography>M250 0ER</Typography>
+      <Typography>M25 0ER</Typography>
       <br />
-      <Typography>07492 868984</Typography>
+      <Typography>07912041474</Typography>
+      <Typography>0161 740 2125</Typography>
       <br />
       <Typography>info@masjidebilal.co.uk</Typography>
     </Box>

@@ -1,7 +1,7 @@
-import { Box, Card, CardContent, CardHeader, Divider, Grid, Typography } from '@mui/material'
+import { Box, Card, CardContent, Divider, Grid, Typography } from '@mui/material'
 import React from 'react'
 
-function about({}: {}) {
+function about() {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
