@@ -7,9 +7,32 @@ import { styled } from '@mui/material/styles'
 import TimeTable from '../../../data/Timetable.json'
 type Props = {}
 
-var today = new Date()
+let today = new Date()
+
+function daySuffix(n) {
+  let suffix = 'th'
+  if (n < 11 || n > 13) {
+    switch (n % 10) {
+      case 1:
+        suffix = 'st'
+        break
+      case 2:
+        suffix = 'nd'
+        break
+      case 3:
+        suffix = 'rd'
+        break
+    }
+  }
+  return n + suffix
+}
+
+var day = String(today.toLocaleString('en-us', { weekday: 'short' }))
+const month = today.toLocaleString('default', { month: 'short' })
 var dd = String(today.getDate())
+var yy = String(today.getFullYear())
 var mm = String(today.getMonth() + 1)
+
 const todaysData = TimeTable.find((i) => {
   if (i.Date === dd && i.Month === mm) {
     return i
@@ -33,7 +56,6 @@ const SalahTimes = (props: Props) => {
       border: 0
     }
   }))
-
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: 'black',
@@ -44,6 +66,7 @@ const SalahTimes = (props: Props) => {
       fontWeight: 'bold'
     }
   }))
+  const fullDate = `${day} ${month} ${daySuffix(dd)} ${yy}`
   return (
     <>
       <Box
@@ -73,7 +96,7 @@ const SalahTimes = (props: Props) => {
           SALAH TIMES
         </Typography>
         <Typography color={'white'} variant="h3">
-          {today.toDateString()}
+          {fullDate}
         </Typography>
       </Box>
       <Box sx={{ bgcolor: '#ffffff', px: '0px' }}>
