@@ -33,10 +33,10 @@ const LatestUpdatesCard = () => {
         <div className="flex justify-center">
           {isMounted && <div dangerouslySetInnerHTML={{ __html: isMobile ? mobileScript : desktopScript }} />}
         </div>
-        <Typography variant="h2">Tafseer Classes</Typography>
+        {/* <Typography variant="h2">Tafseer Classes</Typography>
         <Typography variant="body1">
           Our Tafseer classes take place every Friday after Isha, where we go through the meaning of the 30th Juz.
-        </Typography>
+        </Typography> */}
       </CardContent>
       <CardActions>{/* <Button size="small">Learn More</Button> */}</CardActions>
     </Card>
@@ -47,7 +47,7 @@ const LatestUpdates = (props: Props) => {
     <>
       <Box sx={{ bgcolor: 'secondary.main', mt: '30px', p: '16px' }}>
         <Typography color={'white'} variant="h2">
-          EVENTS
+          LIVE MEDIA FEED
         </Typography>
       </Box>
 

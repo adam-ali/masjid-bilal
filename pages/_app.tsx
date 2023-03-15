@@ -6,11 +6,22 @@ import Footer from '../components/Footer/Footer'
 import { theme } from '../theme/theme'
 import Head from 'next/head'
 import '../styles/globals.css'
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-2VPES8G3LQ" />
+        <Script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-2VPES8G3LQ');
+      `}
+        </Script>
         <title>Masjid Bilal</title>
       </Head>
 
