@@ -100,7 +100,7 @@ const SalahTimes = (props: Props) => {
         </Typography>
       </Box>
       <Box sx={{ bgcolor: '#ffffff', px: '0px' }}>
-        <Table align="center" sx={{ px: 0 }} aria-label="simple table">
+        <Table align="center" sx={{ px: 0 }} aria-label="Salah table">
           <TableHead>
             <TableRow>
               <TableCell></TableCell>

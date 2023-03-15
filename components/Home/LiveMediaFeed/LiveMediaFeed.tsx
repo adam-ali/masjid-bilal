@@ -18,7 +18,7 @@ const desktopScript = `
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="random-nonce"></script>
 <div class="fb-page" data-href="https://www.facebook.com/MasjideBilalPrestwich" data-show-posts="true" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/MasjideBilalPrestwich" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MasjideBilalPrestwich">Masjid E Bilal Prestwich</a></blockquote></div>
 `
-const LatestUpdatesCard = () => {
+const LiveMediaFeedCard = () => {
   const [isMobile, setisMobile] = useState(false)
   const [isMounted, setIsMounted] = useState(false) // Need this for the react-tooltip
 
@@ -42,7 +42,7 @@ const LatestUpdatesCard = () => {
     </Card>
   )
 }
-const LatestUpdates = (props: Props) => {
+const LiveMediaFeed = (props: Props) => {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', mt: '30px', p: '16px' }}>
@@ -52,11 +52,11 @@ const LatestUpdates = (props: Props) => {
       </Box>
 
       {/* <Box component="span"> */}
-      {/* <LatestUpdatesCard /> */}
-      <LatestUpdatesCard />
+      {/* <LiveMediaFeedCard /> */}
+      <LiveMediaFeedCard />
       {/* </Box> */}
     </>
   )
 }
 
-export default LatestUpdates
+export default LiveMediaFeed
