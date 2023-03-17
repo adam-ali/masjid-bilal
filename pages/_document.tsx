@@ -8,6 +8,7 @@ function _head({}: Props) {
     <Html lang="en">
       <Head>
         <meta name="description" content="Masjid Bilal Prestiwch prayer times" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/mosque.ico" />
       </Head>
       <body>
@@ -15,6 +16,13 @@ function _head({}: Props) {
         <NextScript />
 
         <div id="fb-root"></div>
+        {/* <script
+          async
+          defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v16.0"
+          nonce="wgGXcbnO"
+        ></script> */}
         <script
           async
           defer
