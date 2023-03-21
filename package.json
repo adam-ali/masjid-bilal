@@ -26,6 +26,7 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf node_modules/",
+    "release": "bash Release.sh",
     "export": "next build && next export"
   },
   "devDependencies": {
