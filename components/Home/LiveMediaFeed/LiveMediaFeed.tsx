@@ -45,7 +45,7 @@ const LiveMediaFeedCard = () => {
 const LiveMediaFeed = (props: Props) => {
   return (
     <>
-      <Box sx={{ bgcolor: 'secondary.main', mt: '30px', p: '16px' }}>
+      <Box sx={{ bgcolor: 'secondary.main', mt: '10px', p: '16px' }}>
         <Typography color={'white'} variant="h2">
           LIVE MEDIA FEED
         </Typography>

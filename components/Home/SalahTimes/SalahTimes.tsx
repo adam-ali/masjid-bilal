@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Table, TableBody, TableHead, Typography } from '@mui/material'
+import { Box, Table, TableBody, TableHead, Typography, Button } from '@mui/material'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
 import TimeTable from '../../../data/Timetable.json'
+import { useRouter } from 'next/router'
 type Props = {}
 
 let today = new Date()
@@ -47,6 +48,8 @@ const rows = [
 ]
 
 const SalahTimes = (props: Props) => {
+  const router = useRouter()
+
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: '#cef2d8'
@@ -134,6 +137,9 @@ const SalahTimes = (props: Props) => {
             ))}
           </TableBody>
         </Table>
+        <Button className="" onClick={() => router.push('prayer-times')}>
+          See Full Prayer Time Table
+        </Button>
       </Box>
     </>
   )

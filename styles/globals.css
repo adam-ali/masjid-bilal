@@ -30,3 +30,33 @@ a {
 .content-wrapper {
   min-height: calc(100vh - 290px);
 }
+
+/* .fullSalahTable { */
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b4805;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1b4805;
+} */
+
+.SalahTimes-column-group {
+  background-color: #cef2d8;
+}
+
+/* .masjidBilal-green {
+  background-color: #cef2d8;
+} */
+
+.todaysDate {
+  background-color: #cef2d8;
+}
