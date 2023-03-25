@@ -12,10 +12,11 @@ function _head({}: Props) {
         <link rel="icon" href="/mosque.ico" />
       </Head>
       <body>
+        {/* <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> */}
         <Main />
         <NextScript />
 
-        <div id="fb-root"></div>
+        {/* <div id="fb-root"></div> */}
         {/* <script
           async
           defer
@@ -27,7 +28,7 @@ function _head({}: Props) {
           async
           defer
           crossOrigin="anonymous"
-          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0"
+          src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v16.0"
           nonce="random-nonce"
         ></script>
       </body>
