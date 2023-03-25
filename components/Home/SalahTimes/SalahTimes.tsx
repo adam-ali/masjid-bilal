@@ -84,13 +84,13 @@ const SalahTimes = (props: Props) => {
         <div>
           <Typography variant="h2">First Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 12:00 <br /> Salah 12:30
+            Bayaan 1:00pm <br /> Salah 1:30pm
           </Typography>
         </div>
         <div>
           <Typography variant="h2">Second Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 1:00 <br /> Salah 1:30
+            Bayaan 2:00pm <br /> Salah 2:30pm
           </Typography>
         </div>
       </Box>
