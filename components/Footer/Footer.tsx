@@ -12,7 +12,7 @@ const Footer = () => {
       <Typography>Prestwich</Typography>
       <Typography>M25 0ER</Typography>
       <br />
-      <Typography>07912041474</Typography>
+      <Typography>07912041474 (Text Message/WhatsApp) only.</Typography>
       <Typography>0161 740 2125</Typography>
       <br />
       <Typography>info@masjidebilal.co.uk</Typography>
