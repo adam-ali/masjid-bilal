@@ -60,3 +60,13 @@ a {
 .todaysDate {
   background-color: #cef2d8;
 }
+.M-bilal-img {
+  width: 122%;
+}
+
+@media (min-width: 692px) {
+  .M-bilal-img {
+    width: 100%;
+    margin-top: -150px;
+  }
+}

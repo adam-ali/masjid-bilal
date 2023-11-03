@@ -20,6 +20,7 @@ export const theme = createTheme({
       // dark: will be calculated from palette.secondary.main,
       // contrastText: '#ffcc00'
     },
+    // MasjidBialalGreen: '#cef2d8',
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
     contrastThreshold: 3,
