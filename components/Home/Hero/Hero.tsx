@@ -15,7 +15,11 @@ const Hero = (props: Props) => {
       <Box sx={{ bgcolor: '#1b4805', height: '300px', overflow: 'hidden' }}>
         <div className="relative w-full	h-full">
           <img src="/mBilal.png" className="M-bilal-img" />
-          <Typography variant="body2" className="bottom-2.5 absolute px-2 py-1" style={{ backgroundColor: '#cef2d8' }}>
+          <Typography
+            variant="body2"
+            className="bottom-2.5 absolute px-2 py-1 text-center"
+            style={{ backgroundColor: '#cef2d8' }}
+          >
             {Hadith}
           </Typography>
         </div>
