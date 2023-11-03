@@ -28,10 +28,10 @@ function daySuffix(n) {
   return n + suffix
 }
 
-var day = String(today.toLocaleString('en-us', { weekday: 'short' }))
+var day = String(today.toLocaleString('en-us', { weekday: 'long' }))
 const month = today.toLocaleString('default', { month: 'short' })
 var dd = String(today.getDate())
-var yy = String(today.getFullYear())
+// var yy = String(today.getFullYear())
 var mm = String(today.getMonth() + 1)
 
 const todaysData = TimeTable.find((i) => {
@@ -69,7 +69,7 @@ const SalahTimes = (props: Props) => {
       fontWeight: 'bold'
     }
   }))
-  const fullDate = `${day} ${month} ${daySuffix(dd)} ${yy}`
+  const fullDate = `${day}  ${daySuffix(dd)} ${month}`
   return (
     <>
       <Box
@@ -84,13 +84,13 @@ const SalahTimes = (props: Props) => {
         <div>
           <Typography variant="h2">First Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 1:00pm <br /> Salah 1:30pm
+            Bayaan 12:00pm <br /> Salah 12:30pm
           </Typography>
         </div>
         <div>
           <Typography variant="h2">Second Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 2:00pm <br /> Salah 2:30pm
+            Bayaan 1:00pm <br /> Salah 1:30pm
           </Typography>
         </div>
       </Box>
