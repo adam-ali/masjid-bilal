@@ -1,14 +1,12 @@
 import React from 'react'
 import { Box } from '@mui/system'
 // import './Hero.css'
-import MasjideBilal from '../../../public/MasjideBilal.png'
-import Image from 'next/image'
-import { ThemeProvider, Typography, useTheme } from '@mui/material'
+// import MasjideBilal from '../../../public/MasjideBilal.png'
+import { Typography } from '@mui/material'
 
 type Props = {}
 
 const Hero = (props: Props) => {
-  const theme = useTheme()
   const Hadith = `Abu Huraira reported that the Prophet (ﷺ), said, “Whoever goes to the mosque in the morning and evening, Allah will prepare for him a place in Paradise for every morning and evening.” [Bukhari and Muslim] `
   return (
     <>
