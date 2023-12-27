@@ -15,7 +15,9 @@ const Footer = () => {
       <Typography>07912041474 (Text Message/WhatsApp only)</Typography>
       <Typography>0161 740 2125</Typography>
       <br />
-      <Typography>info@masjidebilal.co.uk</Typography>
+      <Typography>
+        <a href="mailto:info@masjidebilal.co.uk">info@masjidebilal.co.uk</a>
+      </Typography>
     </Box>
   )
 }
