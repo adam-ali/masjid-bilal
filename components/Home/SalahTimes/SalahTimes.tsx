@@ -41,10 +41,12 @@ const todaysData = TimeTable.find((i) => {
 })
 const rows = [
   { salah: 'Fajr', start: todaysData?.Fajar, jamaat: todaysData?.fajarJamaat },
+  { salah: 'Sunrise', start: todaysData?.Sunrise, jamaat: '' },
   { salah: 'Zuhur', start: todaysData?.Zuhar, jamaat: todaysData?.zuharJamaat },
   { salah: 'Asar', start: todaysData?.Asar, jamaat: todaysData?.asarJamaat },
   { salah: 'Maghrib', start: todaysData?.maghribJamaat, jamaat: todaysData?.maghribJamaat },
-  { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat }
+  { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat },
+
 ]
 
 const SalahTimes = (props: Props) => {
@@ -84,13 +86,13 @@ const SalahTimes = (props: Props) => {
         <div>
           <Typography variant="h2">First Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 12:00pm <br /> Salah 12:30pm
+            Bayaan 1:00pm <br /> Salah 1:30pm
           </Typography>
         </div>
         <div>
           <Typography variant="h2">Second Jummah</Typography>
           <Typography variant="body1">
-            Bayaan 1:00pm <br /> Salah 1:30pm
+            Bayaan 2:00pm <br /> Salah 2:30pm
           </Typography>
         </div>
       </Box>
@@ -106,7 +108,8 @@ const SalahTimes = (props: Props) => {
         <Table align="center" sx={{ px: 0 }} aria-label="Salah table">
           <TableHead>
             <TableRow>
-              <TableCell></TableCell>
+              <TableCell>
+              </TableCell>
               <TableCell>
                 <Typography sx={{ fontWeight: 'bold' }} align="right" variant="h6">
                   Start
@@ -137,7 +140,7 @@ const SalahTimes = (props: Props) => {
             ))}
           </TableBody>
         </Table>
-        <Button className="" onClick={() => router.push('prayer-times')}>
+        <Button className="" variant='text' color='secondary' onClick={() => router.push('prayer-times')}>
           See Full Prayer Time Table
         </Button>
       </Box>

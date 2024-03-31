@@ -29,7 +29,8 @@ const drawerWidth = 240
 const navItems = [
   { name: 'Home', route: '/' },
   { name: 'About', route: 'about' },
-  { name: 'Contact', route: 'contact' }
+  { name: 'Donations', route: 'donations' },
+  { name: 'Contact', route: 'contact' },
 ]
 
 export default function DrawerAppBar(props: Props) {

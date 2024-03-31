@@ -10,6 +10,11 @@ import Script from 'next/script'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <link rel="icon" href="/mosque.ico" />
+      <link
+        rel="apple-touch-icon"
+        href="/mosque.ico"
+      />
       <Script strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-2VPES8G3LQ" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`

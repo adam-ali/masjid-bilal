@@ -1,15 +1,14 @@
 import { Html, Main, Head, NextScript } from 'next/document'
 import React from 'react'
 
-type Props = {}
-
-function _head({}: Props) {
+function _head() {
   return (
     <Html lang="en">
       <Head>
         <meta name="description" content="Masjid Bilal Prestiwch prayer times" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/mosque.ico" />
+
       </Head>
       <body>
         {/* <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> */}
