@@ -19,20 +19,23 @@ const Hero = () => {
 
           <Typography
             variant="body2"
+            component='div'
             className="bottom-2.5 absolute px-2 py-1 text-center"
             style={{ backgroundColor: '#cef2d8' }}
           >
             {Hadith}
+            <Box >
 
-            <Button
-              variant='contained'
-              disableTouchRipple
-              onClick={() => router.push('donations')}
-              color='secondary'
-              endIcon={<HandCoins />}
-            >
-              Donate to the Masjid
-            </Button>
+              <Button
+                variant='contained'
+                disableTouchRipple
+                onClick={() => router.push('donations')}
+                color='secondary'
+                endIcon={<HandCoins />}
+              >
+                Donate to the Masjid
+              </Button>
+            </Box>
           </Typography>
         </div>
       </Box>

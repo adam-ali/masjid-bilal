@@ -6,15 +6,19 @@ import Footer from '../components/Footer/Footer'
 import { theme } from '../theme/theme'
 import '../styles/globals.css'
 import Script from 'next/script'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <link rel="icon" href="/mosque.ico" />
-      <link
-        rel="apple-touch-icon"
-        href="/mosque.ico"
-      />
+      <Head>
+        <link rel="icon" href="/mosque.ico" />
+        <link
+          rel="apple-touch-icon"
+          href="/mosque.ico"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      </Head>
       <Script strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-2VPES8G3LQ" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
