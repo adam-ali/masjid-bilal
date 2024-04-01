@@ -20,7 +20,7 @@ const Hero = () => {
           <Typography
             variant="body2"
             component="div"
-            className="bottom-2.5 absolute px-2 py-1 text-center w-full"
+            className="bottom-2.5 absolute px-2 py-1 text-center w-full opacity-95"
             style={{ backgroundColor: '#cef2d8' }}
           >
             <Typography variant="body2" className="italic">
