@@ -1,9 +1,11 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
+  const router = useRouter()
   return (
-    <Box sx={{ bgcolor: 'primary.main', color: 'white', p: '16px' }}>
+    <Box sx={{ bgcolor: 'primary.main', color: 'white', p: '16px' }} display={'grid'}>
       <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
         CONTACT US
       </Typography>
@@ -17,6 +19,12 @@ const Footer = () => {
       <br />
       <Typography>
         <a href="mailto:info@masjidebilal.co.uk">info@masjidebilal.co.uk</a>
+      </Typography>
+
+      <Typography variant="body2" className="mt-4">
+        <a className="hover:underline hover:cursor-pointer" onClick={() => router.push('/privacy-policy')}>
+          Privacy policy
+        </a>
       </Typography>
     </Box>
   )

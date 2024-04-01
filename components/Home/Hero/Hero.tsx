@@ -6,7 +6,6 @@ import { Button, Typography } from '@mui/material'
 import { HandCoins } from 'lucide-react'
 import { useRouter } from 'next/router'
 
-
 const Hadith = `Abu Huraira reported that the Prophet (ﷺ), said, “Whoever goes to the mosque in the morning and evening, Allah will prepare for him a place in Paradise for every morning and evening.” [Bukhari and Muslim] `
 const Hero = () => {
   const router = useRouter()
@@ -19,18 +18,17 @@ const Hero = () => {
 
           <Typography
             variant="body2"
-            component='div'
+            component="div"
             className="bottom-2.5 absolute px-2 py-1 text-center"
             style={{ backgroundColor: '#cef2d8' }}
           >
             {Hadith}
-            <Box >
-
+            <Box>
               <Button
-                variant='contained'
+                variant="contained"
                 disableTouchRipple
                 onClick={() => router.push('donations')}
-                color='secondary'
+                color="secondary"
                 endIcon={<HandCoins />}
               >
                 Donate to the Masjid
