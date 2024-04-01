@@ -1,5 +1,6 @@
 import React from 'react'
-import TimeTable from '../data/Timetable.json'
+// import TimeTable from '../data/Timetable.json'
+import { TimeTable } from '../data/Timetable.js'
 import { alpha, styled } from '@mui/material/styles'
 
 import { DataGrid, gridClasses, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
@@ -14,8 +15,8 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
     '&:hover, &.Mui-hovered': {
       backgroundColor: alpha(theme.palette.primary.main, ODD_OPACITY),
       '@media (hover: none)': {
-        backgroundColor: 'transparent'
-      }
+        backgroundColor: 'transparent',
+      },
     },
     '&.Mui-selected': {
       backgroundColor: alpha(theme.palette.primary.main, ODD_OPACITY + theme.palette.action.selectedOpacity),
@@ -26,11 +27,11 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
         ),
         // Reset on touch devices, it doesn't add specificity
         '@media (hover: none)': {
-          backgroundColor: alpha(theme.palette.primary.main, ODD_OPACITY + theme.palette.action.selectedOpacity)
-        }
-      }
-    }
-  }
+          backgroundColor: alpha(theme.palette.primary.main, ODD_OPACITY + theme.palette.action.selectedOpacity),
+        },
+      },
+    },
+  },
 }))
 
 const prayerTimes = (props: Props) => {
@@ -44,7 +45,7 @@ const prayerTimes = (props: Props) => {
       width: 70,
       align: 'center',
       headerAlign: 'center',
-      sortable: false
+      sortable: false,
     },
     { field: 'Zuhar', headerName: 'Start', width: 70, align: 'center', headerAlign: 'center', sortable: false },
     {
@@ -53,7 +54,7 @@ const prayerTimes = (props: Props) => {
       width: 70,
       align: 'center',
       headerAlign: 'center',
-      sortable: false
+      sortable: false,
     },
     { field: 'Asar', headerName: 'Start', width: 70, align: 'center', headerAlign: 'center', sortable: false },
     {
@@ -62,7 +63,7 @@ const prayerTimes = (props: Props) => {
       width: 70,
       align: 'center',
       headerAlign: 'center',
-      sortable: false
+      sortable: false,
     },
     {
       field: 'maghribJamaat',
@@ -70,7 +71,7 @@ const prayerTimes = (props: Props) => {
       align: 'center',
       headerAlign: 'center',
       sortable: false,
-      width: 120
+      width: 120,
     },
     { field: 'Isha', headerName: 'Start', width: 70, align: 'center', headerAlign: 'center', sortable: false },
     {
@@ -79,8 +80,8 @@ const prayerTimes = (props: Props) => {
       width: 70,
       align: 'center',
       headerAlign: 'center',
-      sortable: false
-    }
+      sortable: false,
+    },
   ]
   let today = new Date()
   var mm = String(today.getMonth() + 1)
@@ -111,7 +112,7 @@ const prayerTimes = (props: Props) => {
         </Box>
         <StripedDataGrid
           sx={{
-            borderColor: 'primary.light'
+            borderColor: 'primary.light',
           }}
           rows={salahRows}
           className="fullSalahTable"
@@ -133,32 +134,32 @@ const prayerTimes = (props: Props) => {
               groupId: 'Fajar',
               children: [{ field: 'Fajar' }, { field: 'fajarJamaat' }],
               headerClassName: 'SalahTimes-column-group',
-              headerAlign: 'center'
+              headerAlign: 'center',
             },
             {
               groupId: 'Zuhur',
               children: [{ field: 'Zuhar' }, { field: 'zuharJamaat' }],
               headerClassName: 'SalahTimes-column-group',
-              headerAlign: 'center'
+              headerAlign: 'center',
             },
             {
               groupId: 'Asar',
               children: [{ field: 'Asar' }, { field: 'asarJamaat' }],
               headerClassName: 'SalahTimes-column-group',
-              headerAlign: 'center'
+              headerAlign: 'center',
             },
             {
               groupId: 'Maghrib',
               children: [{ field: 'maghribJamaat' }],
               headerClassName: 'SalahTimes-column-group',
-              headerAlign: 'center'
+              headerAlign: 'center',
             },
             {
               groupId: 'Isha',
               children: [{ field: 'Isha' }, { field: 'ishaJamaat' }],
               headerClassName: 'SalahTimes-column-group',
-              headerAlign: 'center'
-            }
+              headerAlign: 'center',
+            },
           ]}
         />
       </Box>

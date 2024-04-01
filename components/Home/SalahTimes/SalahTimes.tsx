@@ -4,7 +4,9 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
-import TimeTable from '../../../data/Timetable.json'
+import { TimeTable } from '../../../data/Timetable.js'
+// import TimeTable from '../../../data/Timetable.json'
+
 import { useRouter } from 'next/router'
 type Props = {}
 
@@ -46,7 +48,6 @@ const rows = [
   { salah: 'Asar', start: todaysData?.Asar, jamaat: todaysData?.asarJamaat },
   { salah: 'Maghrib', start: todaysData?.maghribJamaat, jamaat: todaysData?.maghribJamaat },
   { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat },
-
 ]
 
 const SalahTimes = (props: Props) => {
@@ -54,22 +55,22 @@ const SalahTimes = (props: Props) => {
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-      backgroundColor: '#cef2d8'
+      backgroundColor: '#cef2d8',
     },
     // hide last border
     '&:last-child td, &:last-child th': {
-      border: 0
-    }
+      border: 0,
+    },
   }))
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: 'black',
-      color: 'white'
+      color: 'white',
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 18,
-      fontWeight: 'bold'
-    }
+      fontWeight: 'bold',
+    },
   }))
   const fullDate = `${day}  ${daySuffix(dd)} ${month}`
   return (
@@ -80,7 +81,7 @@ const SalahTimes = (props: Props) => {
           p: '16px',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <div>
@@ -108,8 +109,7 @@ const SalahTimes = (props: Props) => {
         <Table align="center" sx={{ px: 0 }} aria-label="Salah table">
           <TableHead>
             <TableRow>
-              <TableCell>
-              </TableCell>
+              <TableCell></TableCell>
               <TableCell>
                 <Typography sx={{ fontWeight: 'bold' }} align="right" variant="h6">
                   Start
@@ -140,7 +140,7 @@ const SalahTimes = (props: Props) => {
             ))}
           </TableBody>
         </Table>
-        <Button className="" variant='text' color='secondary' onClick={() => router.push('prayer-times')}>
+        <Button className="" variant="text" color="secondary" onClick={() => router.push('prayer-times')}>
           See Full Prayer Time Table
         </Button>
       </Box>
