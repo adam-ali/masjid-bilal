@@ -1,9 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
+// import { GoogleMapsEmbed } from '@next/third-parties/google'
 
-type Props = {}
-
-function contact({}: Props) {
+function contact() {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', display: 'flex', mb: 0, justifyContent: 'space-between', p: '16px' }}>

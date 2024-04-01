@@ -1,9 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 
-type Props = {}
-
-export default function privacyPolicy({}: Props) {
+export default function privacyPolicy() {
   return (
     <Box display={'flex'} flexDirection={'column'} gap={2} sx={{ p: '16px' }}>
       <Typography variant="h2">Privacy Policy for Masjid E Bilal</Typography>
