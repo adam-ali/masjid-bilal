@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Card, CardActions, CardContent, Typography } from '@mui/material'
 
-type Props = {}
-// <div class="fb-page" data-href="https://www.facebook.com/MasjideBilalPrestwich" data-show-posts="true" data-width="500" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-// <blockquote cite="https://www.facebook.com/MasjideBilalPrestwich" class="fb-xfbml-parse-ignore">
-//   <a href="https://www.facebook.com/MasjideBilalPrestwich">Facebook</a>
-// </blockquote>
-// </div>
-
 const mobileScript = `
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v16.0" nonce="random-nonce"></script> 
@@ -18,10 +11,7 @@ const desktopScript = `
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v16.0" nonce="random-nonce"></script>
 <div class="fb-page" data-href="https://www.facebook.com/MasjideBilalPrestwich" data-show-posts="true" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/MasjideBilalPrestwich" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MasjideBilalPrestwich">Masjid E Bilal Prestwich</a></blockquote></div>
 `
-// const elfsiteScript = `
-// <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-// <div className="elfsight-app-e7f3ac49-1bea-4887-adab-93b30ddf48ac"></div>
-// `
+
 const LiveMediaFeedCard = () => {
   const [isMobile, setisMobile] = useState(false)
   const [isMounted, setIsMounted] = useState(false) // Need this for the react-tooltip
@@ -40,9 +30,6 @@ const LiveMediaFeedCard = () => {
       <CardContent>
         <div className="flex justify-center">
           {isMounted && <div dangerouslySetInnerHTML={{ __html: isMobile ? mobileScript : desktopScript }} />}
-
-          {/* <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-          <div className="elfsight-app-e7f3ac49-1bea-4887-adab-93b30ddf48ac"></div> */}
         </div>
         {/* <Typography variant="h2">Tafseer Classes</Typography>
         <Typography variant="body1">
@@ -53,7 +40,7 @@ const LiveMediaFeedCard = () => {
     </Card>
   )
 }
-const LiveMediaFeed = (props: Props) => {
+const LiveMediaFeed = () => {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', mt: '10px', p: '16px' }}>

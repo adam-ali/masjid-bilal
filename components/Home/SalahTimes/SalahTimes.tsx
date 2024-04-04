@@ -8,7 +8,6 @@ import { TimeTable } from '../../../data/Timetable.js'
 // import TimeTable from '../../../data/Timetable.json'
 
 import { useRouter } from 'next/router'
-type Props = {}
 
 let today = new Date()
 
@@ -50,7 +49,7 @@ const rows = [
   { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat },
 ]
 
-const SalahTimes = (props: Props) => {
+const SalahTimes = () => {
   const router = useRouter()
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
