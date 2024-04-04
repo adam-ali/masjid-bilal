@@ -25,7 +25,7 @@ export default function DownloadApp() {
         <Typography variant="body2">View prayer times easier through our app and widgets. Download here!</Typography>
 
         <Link href="https://apps.apple.com/gb/app/masjid-e-bilal/id6479962497" target="_blank">
-          <Image src="/download_store.png" width={135} height={40} className="my-4" alt="Download on the App Store" />
+          <Image src="/download.svg" width={135} height={40} className="my-4" alt="Download on the App Store" />
         </Link>
 
         <Image
