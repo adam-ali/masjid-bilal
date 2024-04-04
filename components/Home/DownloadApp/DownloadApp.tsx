@@ -25,7 +25,7 @@ export default function DownloadApp() {
         <Typography variant="body2">View prayer times easier through our app and widgets. Download here!</Typography>
 
         <Link href="https://apps.apple.com/gb/app/masjid-e-bilal/id6479962497" target="_blank">
-          <Image src="/download_store.png" width={135} height={40} className="my-4" alt="Picture of the author" />
+          <Image src="/download_store.png" width={135} height={40} className="my-4" alt="Download on the App Store" />
         </Link>
 
         <Image
@@ -35,7 +35,7 @@ export default function DownloadApp() {
           height={208}
           sizes="(min-width: 768px) 80px, 60px"
           layout="responsive"
-          alt="Picture of the author"
+          alt="Picture of the Masjid e Bilal App"
         />
       </Box>
     </>

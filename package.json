@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "clean": "rimraf node_modules",
+    "clean_next": "rimraf .next",
     "release": "bash Release.sh",
     "export": "next build"
   },
