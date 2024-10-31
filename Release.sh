@@ -1,4 +1,4 @@
-npm run export
+npm run build
 
 aws s3 sync out/ s3://masjidebilal.co.uk/ --acl public-read
 
