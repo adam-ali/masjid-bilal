@@ -20,7 +20,10 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@data/*": ["./data/*"]
+    }
   },
   "include": ["src", ".next/types/**/*.ts", "components/Errors"],
   "exclude": ["node_modules"]
