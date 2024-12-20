@@ -4,7 +4,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
-import { TimeTable } from '../../../data/Timetable.js'
+import { TimeTable } from '../../../../data/Timetable.js'
 // import TimeTable from '../../../data/Timetable.json'
 
 import { useRouter } from 'next/router'

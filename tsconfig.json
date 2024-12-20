@@ -15,13 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "incremental": true
   },
-  "include": ["src", ".next/types/**/*.ts", "components/Errors"],
+  "include": ["src", "_legacy/components/Errors"],
   "exclude": ["node_modules"]
 }
