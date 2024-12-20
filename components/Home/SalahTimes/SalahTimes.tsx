@@ -8,7 +8,7 @@ import { TimeTable } from '../../../data/2025.js'
 import { useRouter } from 'next/router'
 
 let today = new Date()
-
+// TODO: add logic to determine year
 function daySuffix(n) {
   let suffix = 'th'
   if (n < 11 || n > 13) {
