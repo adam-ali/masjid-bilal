@@ -5,9 +5,9 @@ import { Box } from '@mui/system'
 import { Button, Typography } from '@mui/material'
 import { HandCoins } from 'lucide-react'
 import { useRouter } from 'next/router'
-const hadith = `Abu Huraira reported that the Prophet (ﷺ), said, “Whoever goes to the mosque in the morning and evening, Allah will prepare for him a place in Paradise for every morning and evening.” [Bukhari and Muslim] `
-const hadith2 = 'The Messenger of Allah, may Allah bless him and grant him peace, said: '
-const hadith3 = '"Whoever builds a mosque for the sake of Allah, Allah will build for him a house like it in Paradise."'
+const hadithOld = `Abu Huraira reported that the Prophet (ﷺ), said, “Whoever goes to the mosque in the morning and evening, Allah will prepare for him a place in Paradise for every morning and evening.” [Bukhari and Muslim] `
+const hadithNarration = 'The Messenger of Allah, may Allah bless him and grant him peace, said: '
+const hadith = ' “Give charity without delay, for it stands in the way of calamity.”(Al-Tirmidhi)'
 const Hero = () => {
   const router = useRouter()
 
@@ -24,9 +24,9 @@ const Hero = () => {
             style={{ backgroundColor: '#cef2d8' }}
           >
             <Typography variant="body2" className="italic">
-              {hadith2}
+              {hadithNarration}
             </Typography>
-            <Typography variant="subtitle1">{hadith3}</Typography>
+            <Typography variant="subtitle1">{hadith}</Typography>
             <Box>
               <Button
                 variant="contained"
