@@ -7,7 +7,7 @@ import { HandCoins } from 'lucide-react'
 import { useRouter } from 'next/router'
 const hadithOld = `Abu Huraira reported that the Prophet (ﷺ), said, “Whoever goes to the mosque in the morning and evening, Allah will prepare for him a place in Paradise for every morning and evening.” [Bukhari and Muslim] `
 const hadithNarration = 'The Messenger of Allah, may Allah bless him and grant him peace, said: '
-const hadith = ' “Give charity without delay, for it stands in the way of calamity.”(Al-Tirmidhi)'
+const hadith = ' “Give charity without delay, for it stands in the way of calamity” [Al-Tirmidhi]'
 const Hero = () => {
   const router = useRouter()
 
