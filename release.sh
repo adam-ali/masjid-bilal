@@ -16,7 +16,7 @@ cd "$(dirname "$0")"
 
 # 1️⃣ Run Next.js static build
 echo "Building Next.js static site..."
-npm run build
+# npm run build
 
 # 2️⃣ Sync files to S3 (deletes old files not in new build)
 echo "Syncing files to S3..."
