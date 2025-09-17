@@ -1,11 +1,12 @@
 import React from 'react'
-import { Box, Table, TableBody, TableHead, Typography, Button } from '@mui/material'
+import { Box, Table, TableBody, TableHead, Typography, Button, TableContainer, Paper } from '@mui/material'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
 import { TimeTable } from '../../../data/2025.js'
 import { useRouter } from 'next/router'
+import FajrIcon from '../../icons/fajr.tsx'
 
 let today = new Date()
 // TODO: add logic to determine year
@@ -47,6 +48,12 @@ const rows = [
   { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat },
 ]
 
+const JummahTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+}))
 const SalahTimes = () => {
   const router = useRouter()
 
@@ -59,6 +66,7 @@ const SalahTimes = () => {
       border: 0,
     },
   }))
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: 'black',
@@ -75,27 +83,59 @@ const SalahTimes = () => {
       <Box
         sx={{
           bgcolor: '#EDEDED',
-          p: '16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
-        <div>
-          <Typography variant="h2">First Jummah</Typography>
-          <Typography variant="body1">
-            Bayaan 1:00pm <br /> Salah 1:30pm
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="h2">Second Jummah</Typography>
-          <Typography variant="body1">
-            Bayaan 2:00pm <br /> Salah 2:30pm
-          </Typography>
-        </div>
+        <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
+          <Table aria-label="Jummah table" sx={{ minWidth: '100%' }}>
+            <TableHead>
+              <TableRow
+                sx={{
+                  '& .MuiTableCell-head': {
+                    paddingTop: '8px',
+                    paddingBottom: '8px',
+                  },
+                }}
+              >
+                <TableCell>
+                  <Typography variant="body1">Jummah</Typography>
+                </TableCell>
+                <TableCell align="center" size="small">
+                  <Typography variant="body1">First</Typography>
+                </TableCell>
+                <TableCell align="center">
+                  <Typography variant="body1">Second</Typography>
+                </TableCell>
+                <TableCell align="center">
+                  <Typography variant="body1">Third</Typography>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell component="th">
+                  <Typography variant="body1">Khutbah</Typography>
+                </TableCell>
+                <JummahTableCell align="center">1:20pm</JummahTableCell>
+                <JummahTableCell align="center">2:00pm</JummahTableCell>
+                <JummahTableCell align="center">2:45pm</JummahTableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell component="th">
+                  <Typography variant="body1">Salaah finishes</Typography>
+                </TableCell>
+                <JummahTableCell align="center">1:30pm</JummahTableCell>
+                <JummahTableCell align="center">2:15pm</JummahTableCell>
+                <JummahTableCell align="center">3:00pm</JummahTableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Box>
       <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
-        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h2">
+        <Typography color={'white'} variant="h2">
           SALAH TIMES
         </Typography>
         <Typography color={'white'} variant="h3">
@@ -108,14 +148,12 @@ const SalahTimes = () => {
             <TableRow>
               <TableCell></TableCell>
               <TableCell>
-                <Typography sx={{ fontWeight: 'bold' }} align="right" variant="h6">
+                <Typography align="right" variant="h6">
                   Start
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Typography sx={{ fontWeight: 'bold' }} variant="h6">
-                  Jamaat
-                </Typography>
+                <Typography variant="h6">Jamaat</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -123,8 +161,9 @@ const SalahTimes = () => {
             {rows.map((row) => (
               <StyledTableRow key={row.salah} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <StyledTableCell component="th" scope="row">
-                  <Typography sx={{ fontWeight: 'bold' }} variant="h6">
+                  <Typography variant="h6">
                     {row.salah}
+                    {/* {row.salah === 'Sunrise' ? <FajrIcon /> : null} */}
                   </Typography>
                 </StyledTableCell>
                 <StyledTableCell align="right" component="th" scope="row">
