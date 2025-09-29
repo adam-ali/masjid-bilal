@@ -124,7 +124,7 @@ const SalahTimes = () => {
               </TableRow>
               <TableRow>
                 <TableCell component="th">
-                  <Typography variant="body1">Salaah finishes</Typography>
+                  <Typography variant="body1">Salah finishes</Typography>
                 </TableCell>
                 <JummahTableCell align="center">1:30pm</JummahTableCell>
                 <JummahTableCell align="center">2:15pm</JummahTableCell>
