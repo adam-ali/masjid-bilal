@@ -1,7 +1,7 @@
 'use client'
 import { alpha, styled } from '@mui/material/styles'
 import { Box, Typography } from '@mui/material'
-import { DataGrid, gridClasses, GridColDef } from '@mui/x-data-grid'
+import { DataGrid, gridClasses, GridColDef, GridRowClassNameParams } from '@mui/x-data-grid'
 import { TimeTable } from '../../data'
 
 const ODD_OPACITY = 0.2
@@ -91,7 +91,7 @@ const prayerTimes = () => {
     return i.Month === mm
   })
 
-  const getRowClassName = (params) => {
+  const getRowClassName = (params: GridRowClassNameParams) => {
     if (params.row.Date === dd && params.row.Month === mm) {
       return 'todaysDate'
     }
