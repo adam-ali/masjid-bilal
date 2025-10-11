@@ -1,7 +1,7 @@
 import React from 'react'
 // import TimeTable from '../data/Timetable.json'
 // import { TimeTable } from '../data/Timetable.js'
-import { TimeTable } from '../data/2025.js'
+import { TimeTable } from '../data'
 
 import { alpha, styled } from '@mui/material/styles'
 

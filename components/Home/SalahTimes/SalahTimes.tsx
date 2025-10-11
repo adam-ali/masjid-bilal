@@ -4,13 +4,13 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
-import { TimeTable } from '../../../data/2025.js'
+import { TimeTable, TimeTableType } from '../../../data'
 import { useRouter } from 'next/router'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
 
 let today = new Date()
 // TODO: add logic to determine year
-function daySuffix(n) {
+function daySuffix(n: number) {
   let suffix = 'th'
   if (n < 11 || n > 13) {
     switch (n % 10) {
@@ -30,12 +30,12 @@ function daySuffix(n) {
 
 var day = today.toLocaleString('en-us', { weekday: 'long' })
 const month = today.toLocaleString('default', { month: 'short' })
-var dd = today.getDate().toString()
+var dd = today.getDate()
 var mm = (today.getMonth() + 1).toString()
 // var yy = String(today.getFullYear())
 
-const todaysData = TimeTable.find((i) => {
-  if (i.Date === dd && i.Month === mm) {
+const todaysData = TimeTable.find((i: TimeTableType) => {
+  if (i.Date === dd.toString() && i.Month === mm) {
     return i
   }
 })

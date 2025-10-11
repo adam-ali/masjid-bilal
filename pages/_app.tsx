@@ -1,7 +1,6 @@
-import React from 'react'
 import type { AppProps } from 'next/app'
 import { Container, ThemeProvider } from '@mui/material'
-import DrawerAppBar from '../components/MainLayout/AppBar/AppBar'
+import DrawerAppBar from '../components/Layout/AppBar'
 import Footer from '../components/Footer/Footer'
 import { theme } from '../theme/theme'
 import '../styles/globals.css'
