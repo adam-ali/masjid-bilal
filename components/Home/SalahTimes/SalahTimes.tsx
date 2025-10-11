@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow'
 import { styled } from '@mui/material/styles'
 
 import { TimeTable, TimeTableType } from '../../../data'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
 
 let today = new Date()

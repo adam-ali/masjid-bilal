@@ -10,6 +10,7 @@
     "clean": "rimraf node_modules",
     "clean_next": "rimraf .next",
     "release": "bash release.sh",
+    "lint": "eslint",
     "export": "next build"
   },
   "dependencies": {

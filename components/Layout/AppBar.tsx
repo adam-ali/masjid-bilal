@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { Container, Grid } from '@mui/material'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import MasjideBilal from '../../public/Masjid_Bilal_Logo.png'
 import Image from 'next/image'
 
@@ -24,9 +24,9 @@ interface Props {
 const drawerWidth = 240
 const navItems = [
   { name: 'Home', route: '/' },
-  { name: 'About', route: 'about' },
-  { name: 'Donations', route: 'donations' },
-  { name: 'Contact', route: 'contact' },
+  { name: 'About', route: '/about' },
+  { name: 'Donations', route: '/donations' },
+  { name: 'Contact', route: '/contact' },
 ]
 
 export default function DrawerAppBar(props: Props) {
