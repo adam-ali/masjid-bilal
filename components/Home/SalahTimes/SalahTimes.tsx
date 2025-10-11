@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles'
 
 import { TimeTable } from '../../../data/2025.js'
 import { useRouter } from 'next/router'
-import FajrIcon from '../../icons/fajr.tsx'
+import WbTwilightIcon from '@mui/icons-material/WbTwilight'
 
 let today = new Date()
 // TODO: add logic to determine year
@@ -28,11 +28,11 @@ function daySuffix(n) {
   return n + suffix
 }
 
-var day = String(today.toLocaleString('en-us', { weekday: 'long' }))
+var day = today.toLocaleString('en-us', { weekday: 'long' })
 const month = today.toLocaleString('default', { month: 'short' })
-var dd = String(today.getDate())
+var dd = today.getDate().toString()
+var mm = (today.getMonth() + 1).toString()
 // var yy = String(today.getFullYear())
-var mm = String(today.getMonth() + 1)
 
 const todaysData = TimeTable.find((i) => {
   if (i.Date === dd && i.Month === mm) {
@@ -162,8 +162,10 @@ const SalahTimes = () => {
               <StyledTableRow key={row.salah} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <StyledTableCell component="th" scope="row">
                   <Typography variant="h6">
-                    {row.salah}
-                    {/* {row.salah === 'Sunrise' ? <FajrIcon /> : null} */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {row.salah}
+                      {row.salah === 'Sunrise' ? <WbTwilightIcon /> : null}
+                    </div>
                   </Typography>
                 </StyledTableCell>
                 <StyledTableCell align="right" component="th" scope="row">

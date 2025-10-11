@@ -30,12 +30,11 @@ export default function DownloadApp() {
 
         <Image
           src="/app_download.png"
-          className="self-center"
-          width={230}
-          height={208}
-          sizes="(min-width: 768px) 80px, 60px"
-          layout="responsive"
-          alt="Picture of the Masjid e Bilal App"
+          width={808}
+          height={818}
+          alt="Masjid e Bilal mobile App"
+          className="w-full h-auto self-center" // <-- THE MAGIC! ✨
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // <-- PERFORMANCE BOOST!
         />
       </Box>
     </>

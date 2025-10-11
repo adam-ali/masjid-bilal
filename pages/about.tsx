@@ -30,7 +30,7 @@ function about() {
           <Divider sx={{ bgcolor: 'secondary.light', height: 2, width: '152px', mb: 3 }} />
           <div>
             <Grid container alignItems="stretch" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              <Grid item xs={12} md={4}>
+              <Grid item size={{ xs: 12, md: 4 }}>
                 <Card sx={{ bgcolor: '#EFEFEF', height: '250px' }}>
                   <CardContent sx={{ my: '30px' }}>
                     <Typography gutterBottom variant="h5" component="h5">
@@ -43,7 +43,7 @@ function about() {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item size={{ xs: 12, md: 4 }}>
                 <Card sx={{ bgcolor: '#EFEFEF', height: '250px' }}>
                   <CardContent sx={{ my: '30px' }}>
                     <Typography gutterBottom variant="h5" component="h5">
@@ -55,7 +55,7 @@ function about() {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item size={{ xs: 12, md: 4 }}>
                 <Card sx={{ bgcolor: '#EFEFEF', height: '250px' }}>
                   <CardContent sx={{ my: '30px' }}>
                     <Typography gutterBottom variant="h5" component="h5">
