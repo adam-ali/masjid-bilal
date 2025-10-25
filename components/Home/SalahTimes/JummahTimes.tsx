@@ -11,7 +11,7 @@ const jummahTimesData = [
   { title: 'Third', khutbah: '14:45', salah: '15:00' },
 ]
 
-const parseTimeString = (timeString) => {
+const parseTimeString = (timeString: string) => {
   const [hours, minutes] = timeString.split(':').map(Number)
   const date = new Date()
   date.setHours(hours, minutes, 0, 0)
@@ -36,7 +36,7 @@ export default function JummahTimetable() {
   const nextJummahIndex = jummahDateTimes.findIndex((j) => j.salahDate > now)
   const allJummahFinished = nextJummahIndex === -1
 
-  const formatTime = (timeString) =>
+  const formatTime = (timeString: string) =>
     new Date(`1970-01-01T${timeString}`).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 
   return (
@@ -79,7 +79,7 @@ export default function JummahTimetable() {
           {jummahDateTimes.map((time, index) => {
             const isNext = index === nextJummahIndex
             const isFinished = index < nextJummahIndex || allJummahFinished
-            const minutesUntilKhutbah = isNext ? Math.round((time.khutbahDate - now) / (1000 * 60)) : 0
+            const minutesUntilKhutbah = isNext ? Math.round((time.khutbahDate.getTime() - now.getTime()) / (1000 * 60)) : 0
             return (
               <Grid size={{ md: 4 }} key={time.title}>
                 <Paper

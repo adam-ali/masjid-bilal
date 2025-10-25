@@ -15,7 +15,7 @@ BUILD_DIR="out/"  # Ensure Next.js is exporting static files here
 cd "$(dirname "$0")"
 
 # 1️⃣ Run Next.js static build
-echo "Building Next.js static site..."
+# echo "Building Next.js static site..."
 # npm run build
 
 # 2️⃣ Sync files to S3 (deletes old files not in new build)
