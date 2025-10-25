@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles'
 import { TimeTable, TimeTableType } from '../../../data'
 import { useRouter } from 'next/navigation'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
+import JummahTimetable from './JummahTimes'
 
 let today = new Date()
 // TODO: add logic to determine year
@@ -80,6 +81,7 @@ const SalahTimes = () => {
   const fullDate = `${day}  ${daySuffix(dd)} ${month}`
   return (
     <>
+    {/* <JummahTimetable /> */}
       <Box
         sx={{
           bgcolor: '#EDEDED',
@@ -118,22 +120,23 @@ const SalahTimes = () => {
                 <TableCell component="th">
                   <Typography variant="body1">Khutbah</Typography>
                 </TableCell>
-                <JummahTableCell align="center">1:20pm</JummahTableCell>
-                <JummahTableCell align="center">2:00pm</JummahTableCell>
-                <JummahTableCell align="center">2:45pm</JummahTableCell>
+                <JummahTableCell align="center">12:00pm</JummahTableCell>
+                <JummahTableCell align="center">12:45pm</JummahTableCell>
+                <JummahTableCell align="center">1:30pm</JummahTableCell>
               </TableRow>
               <TableRow>
                 <TableCell component="th">
                   <Typography variant="body1">Salah finishes</Typography>
                 </TableCell>
-                <JummahTableCell align="center">1:30pm</JummahTableCell>
-                <JummahTableCell align="center">2:15pm</JummahTableCell>
-                <JummahTableCell align="center">3:00pm</JummahTableCell>
+                <JummahTableCell align="center">12:15pm</JummahTableCell>
+                <JummahTableCell align="center">1:00pm</JummahTableCell>
+                <JummahTableCell align="center">1:45pm</JummahTableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
+      
       <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
         <Typography color={'white'} variant="h2">
           SALAH TIMES

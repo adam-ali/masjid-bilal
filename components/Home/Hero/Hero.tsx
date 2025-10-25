@@ -1,10 +1,8 @@
 import React from 'react'
-import { Box, maxHeight } from '@mui/system'
+import { Box } from '@mui/system'
 import { Button, Stack, Typography } from '@mui/material'
-import { HandCoins } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 
 const hadithNarration = 'The Messenger of Allah (ﷺ) said: '
@@ -15,13 +13,11 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        position: 'relative', 
-        // minHeight: { xs: 300, md: 350 }, 
+        position: 'relative',
+        // minHeight: { xs: 300, md: 350 },
         height: 300,
-
         overflow: 'hidden',
         color: 'white',
-        // boxShadow: 5,
       }}
     >
       <Image
@@ -50,15 +46,12 @@ const Hero = () => {
           position: 'relative',
           zIndex: 2,
           height: '100%',
-          minHeight: { xs: 350, md: 400 },
           p: { xs: 2, md: 4 },
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        {/* <FormatQuoteIcon sx={{ fontSize: 48, color: 'secondary.light' }} /> */}
-
         <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
           {hadithNarration}
         </Typography>
@@ -67,11 +60,9 @@ const Hero = () => {
           {hadith}
         </Typography>
 
-        {/* <Box> */}
-          <Typography variant="caption" sx={{ opacity: 0.8 }}>
-            [Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim]
-          </Typography>
-        {/* </Box> */}
+        <Typography variant="caption" sx={{ opacity: 0.8 }}>
+          [Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim]
+        </Typography>
 
         <Button
           variant="contained"
