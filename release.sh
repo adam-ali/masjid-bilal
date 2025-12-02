@@ -3,14 +3,22 @@
 # Exit on errors
 set -e  
 
-# Enable debug logging (optional)
-set -x  
+if [ -f .env ]; then
+    source ./.env
+else
+    echo "Error: .env file not found. Aborting deployment."
+    exit 1
+fi
 
-# Define variables (update these)
-DISTRIBUTION_ID="E2U5WNLM4FL66L"
-BUCKET_NAME="masjidebilal.co.uk"
-BUILD_DIR="out/"  # Ensure Next.js is exporting static files here
+# --- 2. Check that critical variables are set ---
+if [ -z "$DISTRIBUTION_ID" ] || [ -z "$BUCKET_NAME" ]; then
+    echo "Error: One or more required environment variables (DISTRIBUTION_ID, BUCKET_NAME) are not set in .env"
+    exit 1
+fi
+echo "Using DISTRIBUTION_ID: $DISTRIBUTION_ID"
+echo "Using BUCKET_NAME: $BUCKET_NAME"
 
+export DISTRIBUTION_ID
 # Ensure we are in the script's directory
 cd "$(dirname "$0")"
 
@@ -20,10 +28,12 @@ cd "$(dirname "$0")"
 
 # 2️⃣ Sync files to S3 (deletes old files not in new build)
 echo "Syncing files to S3..."
-aws s3 sync "$BUILD_DIR" "s3://$BUCKET_NAME" --delete --cache-control "no-cache"
+aws s3 sync "out/" "s3://$BUCKET_NAME" --delete --cache-control "no-cache"
+echo "S3 sync complete. ✅"
 
 # 3️⃣ Invalidate CloudFront cache
 echo "Invalidating CloudFront cache..."
-aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
+aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+echo "CloudFront invalidation requested."
 
 echo "✅ Deployment complete!"

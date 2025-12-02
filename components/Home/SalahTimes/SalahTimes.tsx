@@ -121,16 +121,16 @@ const SalahTimes = () => {
                   <Typography variant="body1">Khutbah</Typography>
                 </TableCell>
                 <JummahTableCell align="center">12:00pm</JummahTableCell>
-                <JummahTableCell align="center">12:45pm</JummahTableCell>
-                <JummahTableCell align="center">1:30pm</JummahTableCell>
+                <JummahTableCell align="center">1:05pm</JummahTableCell>
+                <JummahTableCell align="center">1:35pm</JummahTableCell>
               </TableRow>
               <TableRow>
                 <TableCell component="th">
                   <Typography variant="body1">Salah finishes</Typography>
                 </TableCell>
-                <JummahTableCell align="center">12:15pm</JummahTableCell>
-                <JummahTableCell align="center">1:00pm</JummahTableCell>
-                <JummahTableCell align="center">1:45pm</JummahTableCell>
+                <JummahTableCell align="center">12:45pm</JummahTableCell>
+                <JummahTableCell align="center">1:20pm</JummahTableCell>
+                <JummahTableCell align="center">1:50pm</JummahTableCell>
               </TableRow>
             </TableBody>
           </Table>
