@@ -120,7 +120,7 @@ const SalahTimes = () => {
                 <TableCell component="th">
                   <Typography variant="body1">Khutbah</Typography>
                 </TableCell>
-                <JummahTableCell align="center">12:00pm</JummahTableCell>
+                <JummahTableCell align="center">12:30pm</JummahTableCell>
                 <JummahTableCell align="center">1:05pm</JummahTableCell>
                 <JummahTableCell align="center">1:35pm</JummahTableCell>
               </TableRow>
