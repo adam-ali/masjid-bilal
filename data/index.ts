@@ -15,6 +15,6 @@ export type TimeTableType = {
   Month: string
 }
 
-import timeTableData from './2025'
+import timeTableData from './2026'
 
 export const TimeTable: TimeTableType[] = timeTableData

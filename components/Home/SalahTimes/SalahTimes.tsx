@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles'
 import { TimeTable, TimeTableType } from '../../../data'
 import { useRouter } from 'next/navigation'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
-import JummahTimetable from './JummahTimes'
+// import JummahTimetable from './JummahTimes'
 
 let today = new Date()
 // TODO: add logic to determine year
