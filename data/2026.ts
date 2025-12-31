@@ -406,7 +406,7 @@ export default [
     Fajar: '6:21',
     Sunrise: '8:04',
     ishaJamaat: '19:45',
-    maghribJamaat: '16"44',
+    maghribJamaat: '16:44',
     asarJamaat: '15:15',
     zuharJamaat: '13:00',
     fajarJamaat: '7:00',
