@@ -2,6 +2,7 @@
 'use client'
 import { Container } from '@mui/material'
 import DrawerAppBar from '../components/Layout/AppBar'
+import InfoBanner from '../components/Layout/InfoBanner'
 import Footer from '../components/Footer/Footer'
 import { Providers } from './providers' // Import our new client provider
 import { GoogleAnalytics } from '@next/third-parties/google' // The new, easy way!
@@ -15,12 +16,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 2. PROVIDERS & LAYOUT! Everything from _app.tsx's body goes here. */}
         <Providers>
           <DrawerAppBar />
+          <InfoBanner />
           <Container maxWidth="md" sx={{ px: '0' }} className="page-container">
             <div className="content-wrapper">
               {children} {/* This is where your page content will go! */}
             </div>
             <Footer />
-          </Container>
+          </Container> 
         </Providers>
 
         {/* 3. SCRIPT UPGRADES! All scripts are handled cleanly. */}
