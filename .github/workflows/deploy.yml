@@ -1,0 +1,44 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js (Matches your local env)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      # 3. Install & Build React App (Root folder)
+      - name: Install & Build React
+        run: |
+          echo "📦 Building React app..."
+          yarn install --frozen-lockfile
+          yarn build
+
+      # 4. Configure AWS Permissions
+      # You need to add these secrets in GitHub Settings
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: deploy to S3
+        run: |
+          aws s3 sync "out/" "s3://${{  secrets.BUCKET_NAME }}" --delete --cache-control "no-cache"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
