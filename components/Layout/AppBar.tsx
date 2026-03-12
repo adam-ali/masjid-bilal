@@ -26,6 +26,7 @@ const navItems = [
   { name: 'Home', route: '/' },
   { name: 'About', route: '/about' },
   { name: 'Donations', route: '/donations' },
+  { name: 'Masjid Expansion', route: '/masjid-expansion' },
   { name: 'Contact', route: '/contact' },
 ]
 

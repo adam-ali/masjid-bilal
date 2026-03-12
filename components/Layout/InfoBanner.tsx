@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Box, Typography } from '@mui/material'
 
 const bannerText = 'Donate towards the Masjid Bilal New Construction Project'
-const donateUrl = 'https://www.paypal.com/ncp/payment/6SP9M7KN2F4U2'
+const donateUrl = '/masjid-expansion'
 
 export default function InfoBanner() {
   return (
@@ -60,7 +60,7 @@ export default function InfoBanner() {
         {/* Duplicate for seamless loop */}
         <Link
           href={donateUrl}
-          target="_blank"
+          // target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
         >

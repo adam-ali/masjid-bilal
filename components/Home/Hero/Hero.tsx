@@ -67,7 +67,7 @@ const Hero = () => {
         <Button
           variant="contained"
           size="large"
-          onClick={() => router.push('donations')}
+          onClick={() => router.push('masjid-expansion')}
           color="secondary"
           startIcon={<VolunteerActivismIcon />}
           sx={{
