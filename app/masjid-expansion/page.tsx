@@ -194,7 +194,7 @@ export default function MasjidExpansionPage() {
             mb: 4,
           }}
         >
-          Excavation & Demolition
+          Foundation & Substructure
         </Typography>
         <Typography sx={{ fontSize: '1.1rem', color: 'text.primary', mb: 1 }}>
           <Box component="span" sx={{ fontWeight: 700, color: 'secondary.main' }}>
