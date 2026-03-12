@@ -45,7 +45,7 @@ export default function MasjidExpansionPage() {
             mb: 3,
           }}
         >
-          Construction Project
+          Construction <br /> Project
         </Typography>
         <div>
           <Button
