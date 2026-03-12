@@ -20,7 +20,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       # 3. Install & Build React App (Root folder)
       - name: Install & Build React
