@@ -5,9 +5,15 @@ const DONATE_URL = 'https://www.paypal.com/ncp/payment/6SP9M7KN2F4U2'
 // Replace with your YouTube video ID for the construction project video
 const YOUTUBE_VIDEO_ID = 'RBN0GRKk9SY?si=YZ7OvXszLnS8BMmj'
 
-const TOTAL_PLEDGED = 104_645
-const TOTAL_RECEIVED = 13_908.35
-const TOTAL_NEEDS = 395_000
+const TOTAL_PLEDGED = 185_745
+const TOTAL_RECEIVED = 22_868
+const TOTAL_NEEDS = 535_000
+
+const TOTAL_REQUIRED = 612_000 // 185,745 + 426,250
+
+const receivedPercentage = (TOTAL_RECEIVED / TOTAL_REQUIRED) * 100
+const pledgedRemainingPercentage = ((TOTAL_PLEDGED - TOTAL_RECEIVED) / TOTAL_REQUIRED) * 100
+const pledgedTotalPercentage = (TOTAL_PLEDGED / TOTAL_REQUIRED) * 100
 
 // Pledged as percentage of total needs (for pie chart)
 const PLEDGED_PERCENTAGE = Math.min(100, (TOTAL_PLEDGED / TOTAL_NEEDS) * 100)
@@ -93,63 +99,34 @@ export default function MasjidExpansionPage() {
         />
       </Box>
 
-      {/* Phase 1 Section - Light gray background */}
-      <Box sx={{ bgcolor: 'grey.200', py: 6, px: 3, my: 5 }}>
+      {/* Phase 1A */}
+      <Box sx={{ bgcolor: 'grey.200', py: 6, px: 3, my: 5, textAlign: 'center' }}>
         <Typography
           sx={{
-            fontSize: { xs: 28, sm: 32 },
+            fontSize: { xs: 18, sm: 22 },
             fontWeight: 700,
             color: 'text.primary',
             textAlign: 'center',
             lineHeight: 1.2,
-            mb: 4,
+            mb: 1,
           }}
         >
-          PHASE 1
+          PHASE 1A
         </Typography>
         <Typography
           sx={{
-            fontSize: { xs: 20, sm: 24 },
+            fontSize: { xs: 24, sm: 28 },
             fontWeight: 600,
-            color: 'text.primary',
+            color: 'secondary.main',
             textAlign: 'center',
             mb: 4,
           }}
         >
-          Excavation, foundations
-          <br />& relocation
-        </Typography>
-        <Box component="ol" sx={{ m: 0, pl: 4, maxWidth: 560, mx: 'auto' }}>
-          <Typography component="li" sx={{ mb: 2, color: 'text.primary', fontSize: '1rem' }}>
-            Excavation of the ground
-          </Typography>
-          <Typography component="li" sx={{ mb: 2, color: 'text.primary', fontSize: '1rem' }}>
-            Demolition of the front part of the current building
-          </Typography>
-          <Typography component="li" sx={{ mb: 2, color: 'text.primary', fontSize: '1rem' }}>
-            Retaining walls and foundation
-          </Typography>
-          <Typography component="li" sx={{ color: 'text.primary', fontSize: '1rem' }}>
-            Preparation of new musalla and madrasah and relocation
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* Immediate needs Section  */}
-      <Box sx={{ bgcolor: 'grey.200', py: 6, px: 3, my: 5, textAlign: 'center' }}>
-        <Typography
-          sx={{
-            fontSize: { xs: 28, sm: 32 },
-            fontWeight: 700,
-            color: 'text.primary',
-            mb: 4,
-          }}
-        >
-          Immediate needs
+          Excavation & Demolition
         </Typography>
         <Typography sx={{ fontSize: '1.1rem', color: 'text.primary', mb: 1 }}>
           <Box component="span" sx={{ fontWeight: 700, color: 'secondary.main' }}>
-            100 people
+            25 more people
           </Box>
           {' to donate '}
           <Box component="span" sx={{ fontWeight: 700, color: 'secondary.main' }}>
@@ -159,16 +136,90 @@ export default function MasjidExpansionPage() {
         <Typography sx={{ color: 'text.secondary', mb: 4 }}>
           the cost of 1 truck load for demolition inclusive of excavation and loading
         </Typography>
-        <Typography sx={{ color: 'text.primary', mb: 1 }}>Foundations & Substructure</Typography>
+        <Typography sx={{ color: 'text.primary' }}>Total</Typography>
         <Typography
           sx={{
             fontSize: { xs: 36, sm: 44 },
             fontWeight: 700,
-            color: 'text.primary',
+            color: 'secondary.main',
             mb: 4,
           }}
         >
-          £395,000.00
+          £145,000
+        </Typography>
+        <Button
+          component="a"
+          href={DONATE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="contained"
+          color="secondary"
+          sx={{
+            py: 1.5,
+            px: 4,
+            borderRadius: 2,
+            textTransform: 'none',
+            fontSize: '1rem',
+            fontWeight: 600,
+            boxShadow: '0 2px 8px rgba(27, 72, 5, 0.3)',
+            '&:hover': {
+              boxShadow: '0 4px 12px rgba(27, 72, 5, 0.4)',
+            },
+          }}
+        >
+          Donate
+        </Button>
+      </Box>
+
+      {/* Phase 1B */}
+      <Box sx={{ bgcolor: 'grey.200', py: 6, px: 3, my: 5, textAlign: 'center' }}>
+        <Typography
+          sx={{
+            fontSize: { xs: 18, sm: 22 },
+            fontWeight: 700,
+            color: 'text.primary',
+            textAlign: 'center',
+            lineHeight: 1.2,
+            mb: 1,
+          }}
+        >
+          PHASE 1B
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: 24, sm: 28 },
+            fontWeight: 600,
+            color: 'secondary.main',
+            textAlign: 'center',
+            mb: 4,
+          }}
+        >
+          Excavation & Demolition
+        </Typography>
+        <Typography sx={{ fontSize: '1.1rem', color: 'text.primary', mb: 1 }}>
+          <Box component="span" sx={{ fontWeight: 700, color: 'secondary.main' }}>
+            300 people
+          </Box>
+          {' to donate '}
+          <Box component="span" sx={{ fontWeight: 700, color: 'secondary.main' }}>
+            £1,300 each
+          </Box>
+        </Typography>
+
+        <Typography sx={{ color: 'text.secondary', mt: 5 }}>Concrete foundation - £200,000</Typography>
+        <Typography sx={{ color: 'text.secondary' }}>Retaining walls and sheet piling - £150,000</Typography>
+        <Typography sx={{ color: 'text.secondary', mb: 5 }}>Drainage - £40,000</Typography>
+
+        <Typography sx={{ color: 'text.primary' }}>Total</Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: 36, sm: 44 },
+            fontWeight: 700,
+            color: 'secondary.main',
+            mb: 4,
+          }}
+        >
+          £390,000
         </Typography>
         <Button
           component="a"
@@ -195,7 +246,7 @@ export default function MasjidExpansionPage() {
       </Box>
 
       {/* Funding Progress Section */}
-      <Box sx={{ bgcolor: 'grey.200', py: 5, px: 3 }}>
+      <Box sx={{ bgcolor: 'grey.200', py: 5, px: 3, mb: 5 }}>
         <Typography
           sx={{
             fontSize: { xs: 28, sm: 32 },
@@ -224,29 +275,52 @@ export default function MasjidExpansionPage() {
                 width: 160,
                 height: 160,
                 borderRadius: '50%',
-                background: `conic-gradient(rgb(143, 207, 161) 0% ${PLEDGED_PERCENTAGE}%, rgb(27, 72, 5) ${PLEDGED_PERCENTAGE}% 100%)`,
+                background: `conic-gradient(
+                  rgb(72, 160, 92) 0% ${receivedPercentage}%,
+                  rgb(143, 207, 161) ${receivedPercentage}% ${pledgedTotalPercentage}%,
+                  rgb(27, 72, 5) ${pledgedTotalPercentage}% 100%
+                )`,
                 flexShrink: 0,
               }}
             />
+
             <Box
-              sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: { xs: 'center', sm: 'flex-start' } }}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 2,
+                width: '100%',
+              }}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              {/* Total pledged */}
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
                 <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(143, 207, 161)', flexShrink: 0 }} />
-                <Box>
+                <Box sx={{ textAlign: 'center' }}>
                   <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total pledged</Typography>
-                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700, color: 'text' }}>
+                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
                     £{TOTAL_PLEDGED.toLocaleString('en-GB')}
                   </Typography>
                 </Box>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(27, 72, 5)', flexShrink: 0 }} />
-                <Box>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Remaining needs</Typography>
-                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700, color: 'text.primary' }}>
-                    £{(TOTAL_NEEDS - TOTAL_PLEDGED).toLocaleString('en-GB', { minimumFractionDigits: 2 })}
+
+              {/* Total received */}
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
+                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(72, 160, 92)', flexShrink: 0 }} />
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total received</Typography>
+                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
+                    £{TOTAL_RECEIVED.toLocaleString('en-GB')}
                   </Typography>
+                </Box>
+              </Box>
+
+              {/* Remaining needs */}
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
+                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(27, 72, 5)', flexShrink: 0 }} />
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Remaining needs</Typography>
+                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>£426,250</Typography>
                 </Box>
               </Box>
             </Box>
