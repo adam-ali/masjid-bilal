@@ -16,11 +16,11 @@ export default function MasjidExpansionPage() {
   return (
     <Box sx={{ bgcolor: 'background.paper' }}>
       {/* Header Section - White background */}
-      <Box sx={{ px: 2, pt: 4, pb: 3 }}>
+      <Box sx={{ px: 2, py: 4, pt: 8 }}>
         <Typography
           component="h1"
           sx={{
-            fontSize: { xs: 32, sm: 40 },
+            fontSize: { xs: 38, sm: 48 },
             fontWeight: 700,
             color: 'text.primary',
             lineHeight: 1.1,
@@ -31,7 +31,7 @@ export default function MasjidExpansionPage() {
         </Typography>
         <Typography
           sx={{
-            fontSize: { xs: 32, sm: 40 },
+            fontSize: { xs: 38, sm: 48 },
             fontWeight: 700,
             color: 'text.primary',
             lineHeight: 1.1,
@@ -39,30 +39,32 @@ export default function MasjidExpansionPage() {
             mb: 3,
           }}
         >
-          construction project
+          Construction Project
         </Typography>
-        <Button
-          component="a"
-          href={DONATE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="contained"
-          color="secondary"
-          sx={{
-            py: 1.5,
-            px: 4,
-            borderRadius: 2,
-            textTransform: 'none',
-            fontSize: '1rem',
-            fontWeight: 600,
-            boxShadow: '0 2px 8px rgba(27, 72, 5, 0.3)',
-            '&:hover': {
-              boxShadow: '0 4px 12px rgba(27, 72, 5, 0.4)',
-            },
-          }}
-        >
-          Donate
-        </Button>
+        <div>
+          <Button
+            component="a"
+            href={DONATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            color="secondary"
+            sx={{
+              py: 1.5,
+              px: 4,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontSize: '1rem',
+              fontWeight: 600,
+              boxShadow: '0 2px 8px rgba(27, 72, 5, 0.3)',
+              '&:hover': {
+                boxShadow: '0 4px 12px rgba(27, 72, 5, 0.4)',
+              },
+            }}
+          >
+            Donate
+          </Button>
+        </div>
       </Box>
 
       {/* Video Section - Full width */}
@@ -243,7 +245,7 @@ export default function MasjidExpansionPage() {
                 <Box>
                   <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Remaining needs</Typography>
                   <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700, color: 'text.primary' }}>
-                    £{(TOTAL_NEEDS- TOTAL_PLEDGED).toLocaleString('en-GB', { minimumFractionDigits: 2 })}
+                    £{(TOTAL_NEEDS - TOTAL_PLEDGED).toLocaleString('en-GB', { minimumFractionDigits: 2 })}
                   </Typography>
                 </Box>
               </Box>
