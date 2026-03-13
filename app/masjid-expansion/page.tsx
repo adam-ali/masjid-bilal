@@ -1,5 +1,6 @@
 'use client'
 import { Box, Button, Typography } from '@mui/material'
+import { PieChart } from '@mui/x-charts/PieChart'
 
 const DONATE_URL = 'https://www.paypal.com/ncp/payment/6SP9M7KN2F4U2'
 // Replace with your YouTube video ID for the construction project video
@@ -10,13 +11,6 @@ const TOTAL_RECEIVED = 22_868
 const TOTAL_NEEDS = 535_000
 
 const TOTAL_REQUIRED = 612_000 // 185,745 + 426,250
-
-const receivedPercentage = (TOTAL_RECEIVED / TOTAL_REQUIRED) * 100
-const pledgedRemainingPercentage = ((TOTAL_PLEDGED - TOTAL_RECEIVED) / TOTAL_REQUIRED) * 100
-const pledgedTotalPercentage = (TOTAL_PLEDGED / TOTAL_REQUIRED) * 100
-
-// Pledged as percentage of total needs (for pie chart)
-const PLEDGED_PERCENTAGE = Math.min(100, (TOTAL_PLEDGED / TOTAL_NEEDS) * 100)
 
 export default function MasjidExpansionPage() {
   return (
@@ -270,58 +264,78 @@ export default function MasjidExpansionPage() {
         >
           {/* Pie chart with keys and amounts combined */}
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
-            <Box
-              sx={{
-                width: 160,
-                height: 160,
-                borderRadius: '50%',
-                background: `conic-gradient(
-                  rgb(72, 160, 92) 0% ${receivedPercentage}%,
-                  rgb(143, 207, 161) ${receivedPercentage}% ${pledgedTotalPercentage}%,
-                  rgb(27, 72, 5) ${pledgedTotalPercentage}% 100%
-                )`,
-                flexShrink: 0,
-              }}
+            <PieChart
+              series={[
+                {
+                  data: [
+                    {
+                      id: 'received',
+                      value: TOTAL_RECEIVED,
+                      label: 'Total received',
+                      color: 'rgb(72, 160, 92)',
+                    },
+                    {
+                      id: 'pledged',
+                      value: TOTAL_PLEDGED - TOTAL_RECEIVED,
+                      label: 'Total pledged',
+                      color: 'rgb(143, 207, 161)',
+                    },
+                    {
+                      id: 'remaining',
+                      value: TOTAL_REQUIRED - TOTAL_PLEDGED,
+                      label: 'Remaining needs',
+                      color: 'rgb(27, 72, 5)',
+                    },
+                  ],
+                  innerRadius: 0,
+                  outerRadius: 80,
+                  paddingAngle: 2,
+                  arcLabel: () => '',
+                },
+              ]}
+              width={200}
+              height={200}
+              margin={{ top: 0, bottom: 0, left: 0, right: 0 }}
+              hideLegend
             />
 
             <Box
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
+                display: 'grid',
+                gridTemplateColumns: '10px 1fr',
+                columnGap: 3,
+                rowGap: 2,
                 alignItems: 'center',
-                gap: 2,
-                width: '100%',
+                justifyItems: 'start',
+                width: 'fit-content',
+                mx: 'auto',
               }}
             >
               {/* Total pledged */}
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
-                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(143, 207, 161)', flexShrink: 0 }} />
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total pledged</Typography>
-                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
-                    £{TOTAL_PLEDGED.toLocaleString('en-GB')}
-                  </Typography>
-                </Box>
+              <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(143, 207, 161)' }} />
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+                <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total pledged</Typography>
+                <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
+                  £{TOTAL_PLEDGED.toLocaleString('en-GB')}
+                </Typography>
               </Box>
 
               {/* Total received */}
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
-                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(72, 160, 92)', flexShrink: 0 }} />
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total received</Typography>
-                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
-                    £{TOTAL_RECEIVED.toLocaleString('en-GB')}
-                  </Typography>
-                </Box>
+              <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(72, 160, 92)' }} />
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+                <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Total received</Typography>
+                <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
+                  £{TOTAL_RECEIVED.toLocaleString('en-GB')}
+                </Typography>
               </Box>
 
               {/* Remaining needs */}
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100%' }}>
-                <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(27, 72, 5)', flexShrink: 0 }} />
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Remaining needs</Typography>
-                  <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>£426,250</Typography>
-                </Box>
+              <Box sx={{ width: 12, height: 12, borderRadius: 0.5, bgcolor: 'rgb(27, 72, 5)' }} />
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+                <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>Remaining needs</Typography>
+                <Typography sx={{ fontSize: { xs: 24, sm: 28 }, fontWeight: 700 }}>
+                  £{(TOTAL_REQUIRED - TOTAL_PLEDGED).toLocaleString('en-GB')}
+                </Typography>
               </Box>
             </Box>
           </Box>
