@@ -1,10 +1,69 @@
 'use client'
 
-import Link from 'next/link'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import { trackNavigateToDonate } from '../../services/analytics'
+import { usePathname, useRouter } from 'next/navigation'
 
-const bannerText = 'Donate towards the Masjid Bilal New Construction Project'
-const donateUrl = '/masjid-expansion'
+const donateLinkButtonSx = {
+  display: 'inline-flex',
+  alignItems: 'baseline',
+  p: 0,
+  minWidth: 0,
+  m: 0,
+  textTransform: 'none' as const,
+  font: 'inherit',
+  fontSize: 'inherit',
+  fontWeight: 500,
+  lineHeight: 'inherit',
+  letterSpacing: 'inherit',
+  verticalAlign: 'baseline',
+  color: '#60a5fa',
+  textDecoration: 'underline',
+  textUnderlineOffset: '2px',
+  borderRadius: 0,
+  boxShadow: 'none',
+  '&:hover': {
+    bgcolor: 'transparent',
+    boxShadow: 'none',
+    color: '#93c5fd',
+    textDecoration: 'underline',
+  },
+  '&:active': {
+    bgcolor: 'transparent',
+    boxShadow: 'none',
+  },
+  '&.Mui-focusVisible': {
+    outline: '2px solid #60a5fa',
+    outlineOffset: 2,
+    bgcolor: 'transparent',
+  },
+}
+
+function BannerSegment() {
+  const location = usePathname()
+  const router = useRouter()
+  const goToDonate = () => {
+    trackNavigateToDonate(location)
+    router.push('/masjid-expansion')
+  }
+  return (
+    <Typography
+      component="span"
+      sx={{
+        whiteSpace: 'nowrap',
+        px: 4,
+        fontSize: { xs: '0.875rem', sm: '0.9375rem' },
+        fontWeight: 500,
+        color: 'white',
+      }}
+    >
+      <Button component="span" variant="text" disableRipple onClick={() => goToDonate()} sx={donateLinkButtonSx}>
+        Donate
+      </Button>
+      {' towards the Masjid Bilal New Construction Project'}
+    </Typography>
+  )
+}
 
 export default function InfoBanner() {
   return (
@@ -29,63 +88,8 @@ export default function InfoBanner() {
           },
         }}
       >
-        <Link
-          href={donateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
-        >
-          <Typography
-            component="span"
-            sx={{
-              whiteSpace: 'nowrap',
-              px: 4,
-              fontSize: { xs: '0.875rem', sm: '0.9375rem' },
-              fontWeight: 500,
-            }}
-          >
-            <Box
-              component="span"
-              sx={{
-                color: '#60a5fa',
-                textDecoration: 'underline',
-                '&:hover': { opacity: 0.9 },
-              }}
-            >
-              Donate
-            </Box>
-            {' towards the Masjid Bilal New Construction Project'}
-          </Typography>
-        </Link>
-        {/* Duplicate for seamless loop */}
-        <Link
-          href={donateUrl}
-          // target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
-        >
-          <Typography
-            component="span"
-            sx={{
-              whiteSpace: 'nowrap',
-              px: 4,
-              fontSize: { xs: '0.875rem', sm: '0.9375rem' },
-              fontWeight: 500,
-            }}
-          >
-            <Box
-              component="span"
-              sx={{
-                color: '#60a5fa',
-                textDecoration: 'underline',
-                '&:hover': { opacity: 0.9 },
-              }}
-            >
-              Donate
-            </Box>
-            {' towards the Masjid Bilal New Construction Project'}
-          </Typography>
-        </Link>
+        <BannerSegment />
+        <BannerSegment />
       </Box>
     </Box>
   )

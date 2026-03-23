@@ -61,7 +61,7 @@ export default function DrawerAppBar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav" position="static">
+      <AppBar component="nav" position="static" color="primary" sx={{ backgroundColor: '#000' }}>
         <Container maxWidth="md" sx={{ px: '0' }}>
           <Toolbar>
             <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
@@ -69,7 +69,7 @@ export default function DrawerAppBar(props: Props) {
                 src={MasjideBilal}
                 onClick={() => router.push('/')}
                 className="cursor-pointer"
-                width={200}
+                width={180}
                 alt="Masjid Bilal"
               />
             </Grid>

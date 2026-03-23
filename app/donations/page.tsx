@@ -115,7 +115,10 @@ export default function DonationsPage() {
               }}
             >
               <ConstructionIcon sx={{ fontSize: 36, opacity: 0.95 }} />
-              <Typography component="span" sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}>
+              <Typography
+                component="span"
+                sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}
+              >
                 New Construction Project
               </Typography>
               <Typography component="span" sx={{ fontWeight: 500, fontSize: '0.7rem', opacity: 0.95 }}>
@@ -152,7 +155,10 @@ export default function DonationsPage() {
               }}
             >
               <CreditCardIcon sx={{ fontSize: 36, opacity: 0.95 }} />
-              <Typography component="span" sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}>
+              <Typography
+                component="span"
+                sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}
+              >
                 Masjid Bilal Operational Costs
               </Typography>
               <Typography component="span" sx={{ fontWeight: 500, fontSize: '0.7rem', opacity: 0.95 }}>
@@ -163,7 +169,9 @@ export default function DonationsPage() {
 
           <Paper elevation={4} sx={{ borderRadius: 2, width: '100%' }}>
             <Box sx={{ p: 2 }}>
-              <Typography variant="body1">Alternivitely you can donate via bank transfer using the details below.</Typography>
+              <Typography variant="body1">
+                Alternivitely you can donate via bank transfer using the details below.
+              </Typography>
             </Box>
             <Divider />
             <BankDetailRow
