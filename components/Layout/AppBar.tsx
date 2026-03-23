@@ -69,14 +69,21 @@ export default function DrawerAppBar(props: Props) {
                 src={MasjideBilal}
                 onClick={() => router.push('/')}
                 className="cursor-pointer"
-                width={180}
+                width={140}
                 alt="Masjid Bilal"
               />
             </Grid>
-
+            <Button
+              variant="contained"
+              disableRipple
+              sx={{ backgroundColor: '#fff', color: '#000', mx: 2,display: { sm: 'none' } }}
+              onClick={() => router.push('/masjid-expansion')}
+            >
+              Donate
+            </Button>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
+              aria-label="open drawer"  
               edge="start"
               onClick={handleDrawerToggle}
               sx={{ display: { sm: 'none' } }}

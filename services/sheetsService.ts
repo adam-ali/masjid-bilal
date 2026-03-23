@@ -15,7 +15,7 @@ const API_KEY = 'AIzaSyAWLCTnZARrtmoFb1clU_CCdgLHd7xpruw'
 const RANGE = 'Sheet1!A2:B5' // Adjust to your data range
 
 const CACHE_KEY = 'mosque_construction_funds'
-const CACHE_DURATION = 5 * 60 * 1000
+const CACHE_DURATION = 10 * 60 * 1000
 
 export const fetchSheetData = async (): Promise<ConstructionFunds> => {
 

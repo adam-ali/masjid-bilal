@@ -1,16 +1,13 @@
-import React from 'react'
-import { Box, Table, TableBody, TableHead, Typography, Button, TableContainer, Paper } from '@mui/material'
-import TableCell, { tableCellClasses } from '@mui/material/TableCell'
-import TableRow from '@mui/material/TableRow'
-import { styled } from '@mui/material/styles'
+'use client'
 
-import { TimeTable, TimeTableType } from '../../../data'
+import { useMemo } from 'react'
+import { Box, Typography, Button } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
-// import JummahTimetable from './JummahTimes'
 
-let today = new Date()
-// TODO: add logic to determine year
+import { TimeTable, TimeTableType } from '../../../data'
+import JummahTimes from './JummahTimes'
+
 function daySuffix(n: number) {
   let suffix = 'th'
   if (n < 11 || n > 13) {
@@ -26,166 +23,218 @@ function daySuffix(n: number) {
         break
     }
   }
-  return n + suffix
+  return `${n}${suffix}`
 }
 
-var day = today.toLocaleString('en-us', { weekday: 'long' })
-const month = today.toLocaleString('default', { month: 'short' })
-var dd = today.getDate()
-var mm = (today.getMonth() + 1).toString()
-// var yy = String(today.getFullYear())
+type PrayerColumn = {
+  key: string
+  label: string
+  start: keyof TimeTableType
+  jamaat: keyof TimeTableType
+}
 
-const todaysData = TimeTable.find((i: TimeTableType) => {
-  if (i.Date === dd.toString() && i.Month === mm) {
-    return i
-  }
-})
-const rows = [
-  { salah: 'Fajr', start: todaysData?.Fajar, jamaat: todaysData?.fajarJamaat },
-  { salah: 'Sunrise', start: todaysData?.Sunrise, jamaat: '' },
-  { salah: 'Zuhur', start: todaysData?.Zuhar, jamaat: todaysData?.zuharJamaat },
-  { salah: 'Asar', start: todaysData?.Asar, jamaat: todaysData?.asarJamaat },
-  { salah: 'Maghrib', start: todaysData?.maghribJamaat, jamaat: todaysData?.maghribJamaat },
-  { salah: 'Isha', start: todaysData?.Isha, jamaat: todaysData?.ishaJamaat },
+const PRAYER_COLUMNS: PrayerColumn[] = [
+  { key: 'fajr', label: 'Fajr', start: 'Fajar', jamaat: 'fajarJamaat' },
+  { key: 'dhuhr', label: 'Dhuhr', start: 'Zuhar', jamaat: 'zuharJamaat' },
+  { key: 'asr', label: 'Asr', start: 'Asar', jamaat: 'asarJamaat' },
+  { key: 'maghrib', label: 'Maghrib', start: 'maghribJamaat', jamaat: 'maghribJamaat' },
+  { key: 'isha', label: 'Isha', start: 'Isha', jamaat: 'ishaJamaat' },
 ]
 
-const JummahTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-}))
 const SalahTimes = () => {
   const router = useRouter()
 
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-      backgroundColor: '#cef2d8',
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-      border: 0,
-    },
-  }))
+  const { fullDate, sunriseTime, startRow, jamaatRow } = useMemo(() => {
+    const today = new Date()
+    const dd = today.getDate()
+    const mm = String(today.getMonth() + 1)
+    const month = today.toLocaleString('en-GB', { month: 'short' })
 
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: 'black',
-      color: 'white',
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
-  }))
-  const fullDate = `${day}  ${daySuffix(dd)} ${month}`
+    const todaysData = TimeTable.find((i: TimeTableType) => i.Date === String(dd) && i.Month === mm)
+
+    const sunriseRaw = todaysData?.Sunrise?.trim()
+    const sunriseTime = sunriseRaw && sunriseRaw.length > 0 ? sunriseRaw : '—'
+
+    const startRow: string[] = []
+    const jamaatRow: string[] = []
+    for (const col of PRAYER_COLUMNS) {
+      const rawStart = todaysData?.[col.start] as string | undefined
+      const rawJamaat = todaysData?.[col.jamaat] as string | undefined
+      startRow.push(rawStart?.trim() || '—')
+      jamaatRow.push(rawJamaat?.trim() || '—')
+    }
+
+    return {
+      fullDate: `${daySuffix(dd)} ${month}`,
+      sunriseTime,
+      startRow,
+      jamaatRow,
+    }
+  }, [])
+
   return (
-    <>
-    {/* <JummahTimetable /> */}
+    <Box sx={{ bgcolor: 'background.paper' }}>
+      {/* Salah — dark green grid (prayers as columns, Start / Jamaat as rows) */}
       <Box
         sx={{
-          bgcolor: '#EDEDED',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          bgcolor: 'secondary.main',
+          color: 'common.white',
+          px: { xs: 1.5, sm: 2 },
+          pt: 2,
+          pb: 2.5,
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
         }}
       >
-        <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
-          <Table aria-label="Jummah table" sx={{ minWidth: '100%' }}>
-            <TableHead>
-              <TableRow
-                sx={{
-                  '& .MuiTableCell-head': {
-                    paddingTop: '8px',
-                    paddingBottom: '8px',
-                  },
-                }}
-              >
-                <TableCell>
-                  <Typography variant="body1">Jummah</Typography>
-                </TableCell>
-                <TableCell align="center" size="small">
-                  <Typography variant="body1">First</Typography>
-                </TableCell>
-                <TableCell align="center">
-                  <Typography variant="body1">Second</Typography>
-                </TableCell>
-                <TableCell align="center">
-                  <Typography variant="body1">Third</Typography>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell component="th">
-                  <Typography variant="body1">Khutbah</Typography>
-                </TableCell>
-                <JummahTableCell align="center">12:30pm</JummahTableCell>
-                <JummahTableCell align="center">1:05pm</JummahTableCell>
-                <JummahTableCell align="center">1:35pm</JummahTableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component="th">
-                  <Typography variant="body1">Salah finishes</Typography>
-                </TableCell>
-                <JummahTableCell align="center">12:45pm</JummahTableCell>
-                <JummahTableCell align="center">1:20pm</JummahTableCell>
-                <JummahTableCell align="center">1:50pm</JummahTableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '4.5rem repeat(5, minmax(0, 1fr))', sm: '5.5rem repeat(5, minmax(0, 1fr))' },
+            columnGap: { xs: 0.5, sm: 1 },
+            rowGap: 1.25,
+            alignItems: 'center',
+            minWidth: { xs: 320, sm: 0 },
+          }}
+        >
+          {/* Row: Sunrise above Fajr, date above Isha (each on a single line) */}
+          <Box />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'nowrap',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 0.5,
+              whiteSpace: 'nowrap',
+              pb: 0.25,
+              mr: -7,
+            }}
+          >
+            <WbTwilightIcon
+              sx={{
+                fontSize: { xs: 16, sm: 20 },
+                color: 'common.white',
+                opacity: 0.95,
+                flexShrink: 0,
+              }}
+            />
+            <Typography
+              component="span"
+              sx={{
+                color: 'common.white',
+                fontSize: { xs: '0.65rem', sm: '0.8rem' },
+                fontWeight: 700,
+                lineHeight: 1.2,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Sunrise {sunriseTime}
+            </Typography>
+          </Box>
+          <Box />
+          <Box />
+          <Box />
+          <Typography
+            sx={{
+              textAlign: 'center',
+              color: 'common.white',
+              fontSize: { xs: '0.65rem', sm: '0.9rem' },
+              fontWeight: 600,
+              lineHeight: 1.25,
+              pb: 0.25,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {fullDate}
+          </Typography>
+
+          {/* Prayer name row */}
+          <Box />
+          {PRAYER_COLUMNS.map((col) => (
+            <Typography
+              key={col.key}
+              sx={{
+                textAlign: 'center',
+                fontWeight: 700,
+                fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                color: 'common.white',
+                lineHeight: 1.2,
+              }}
+            >
+              {col.label}
+            </Typography>
+          ))}
+
+          {/* Start row */}
+          <Typography
+            sx={{
+              fontWeight: 700,
+              fontSize: { xs: '1rem' },
+              color: 'common.white',
+              textAlign: 'left',
+            }}
+          >
+            Start
+          </Typography>
+          {startRow.map((t, i) => (
+            <Typography
+              key={`start-${PRAYER_COLUMNS[i].key}`}
+              sx={{
+                textAlign: 'center',
+                fontSize: { xs: '1rem' },
+                fontWeight: 500,
+                color: 'common.white',
+              }}
+            >
+              {t}
+            </Typography>
+          ))}
+
+          {/* Jamaat row */}
+          <Typography
+            sx={{
+              fontWeight: 700,
+              fontSize: { xs: '1rem' },
+              color: 'common.white',
+              textAlign: 'left',
+            }}
+          >
+            Jamaat
+          </Typography>
+          {jamaatRow.map((t, i) => (
+            <Typography
+              key={`jamaat-${PRAYER_COLUMNS[i].key}`}
+              sx={{
+                textAlign: 'center',
+                fontSize: { xs: '1rem' },
+                fontWeight: 500,
+                color: 'common.white',
+              }}
+            >
+              {t}
+            </Typography>
+          ))}
+        </Box>
       </Box>
-      
-      <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
-        <Typography color={'white'} variant="h2">
-          SALAH TIMES
-        </Typography>
-        <Typography color={'white'} variant="h3">
-          {fullDate}
-        </Typography>
+
+      {/* Jummuah — full width edge-to-edge on mobile */}
+      <Box sx={{ pt: { xs: 2, sm: 3 }, pb: 0 }}>
+        <JummahTimes />
       </Box>
-      <Box sx={{ bgcolor: '#ffffff', px: '0px' }}>
-        <Table align="center" sx={{ px: 0 }} aria-label="Salah table">
-          <TableHead>
-            <TableRow>
-              <TableCell></TableCell>
-              <TableCell>
-                <Typography align="right" variant="h6">
-                  Start
-                </Typography>
-              </TableCell>
-              <TableCell align="right">
-                <Typography variant="h6">Jamaat</Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.salah} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <StyledTableCell component="th" scope="row">
-                  <Typography variant="h6">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      {row.salah}
-                      {row.salah === 'Sunrise' ? <WbTwilightIcon /> : null}
-                    </div>
-                  </Typography>
-                </StyledTableCell>
-                <StyledTableCell align="right" component="th" scope="row">
-                  {row.start}
-                </StyledTableCell>
-                <StyledTableCell align="right" component="th" scope="row">
-                  {row.jamaat}
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <Button className="" variant="text" color="secondary" onClick={() => router.push('prayer-times')}>
-          See Full Prayer Time Table
+
+      <Box sx={{ bgcolor: '#ffffff', px: 2, textAlign: 'center' }}>
+        <Button
+          variant="text"
+          color="secondary"
+          disableRipple
+          onClick={() => router.push('/prayer-times')}
+          sx={{ textTransform: 'none' }}
+        >
+          See full prayer time table
         </Button>
       </Box>
-    </>
+    </Box>
   )
 }
 

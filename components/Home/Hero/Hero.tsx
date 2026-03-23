@@ -8,20 +8,20 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 const hadithNarration = 'The Messenger of Allah (ﷺ) said: '
 const hadith = ' “The prayer in congregation is twenty-seven times more rewarding than the prayer offered alone.”'
 const Hero = () => {
-  const router = useRouter()
+  // const router = useRouter()
 
   return (
     <Box
       sx={{
         position: 'relative',
         // minHeight: { xs: 300, md: 350 },
-        height: 300,
+        height: 250,
         overflow: 'hidden',
         color: 'white',
       }}
     >
       <Image
-        src="/mBilal.png"
+        src="/newMB.jpeg"
         alt="A beautiful view of the Masjid"
         fill
         style={{ objectFit: 'cover', zIndex: 0 }}
@@ -35,7 +35,7 @@ const Hero = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(to top, rgba(0, 20, 0, 0.9) 0%, rgba(0, 20, 0, 0.2) 100%)',
+          background: 'linear-gradient(to top, rgba(0, 20, 0, 0.8) 0%, rgba(180, 216, 255, 0) 100%)',
           zIndex: 1,
         }}
       />
@@ -61,12 +61,12 @@ const Hero = () => {
         </Typography>
 
         <Typography variant="caption" sx={{ opacity: 0.8 }}>
-          [Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim]
+          [Sahih al-Bukhari]
         </Typography>
 
-        <Button
+        {/* <Button
           variant="contained"
-          size="large"
+          size="medium"
           onClick={() => router.push('masjid-expansion')}
           color="secondary"
           startIcon={<VolunteerActivismIcon />}
@@ -86,7 +86,7 @@ const Hero = () => {
           }}
         >
           Donate to the Masjid
-        </Button>
+        </Button> */}
       </Stack>
     </Box>
   )

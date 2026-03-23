@@ -1,7 +1,6 @@
 'use client'
-
-import React, { useEffect, useState } from 'react'
-import { Box, Card, CardActions, CardContent, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { Box, Card, CardContent, Typography } from '@mui/material'
 
 const mobileScript = `
 <div id="fb-root"></div>
@@ -16,7 +15,7 @@ const desktopScript = `
 
 const LiveMediaFeedCard = () => {
   const [isMobile, setisMobile] = useState(false)
-  const [isMounted, setIsMounted] = useState(false) // Need this for the react-tooltip
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setisMobile(window.innerWidth < 500 ? true : false)
@@ -38,23 +37,26 @@ const LiveMediaFeedCard = () => {
           Our Tafseer classes take place every Friday after Isha, where we go through the meaning of the 30th Juz.
         </Typography> */}
       </CardContent>
-      <CardActions>{/* <Button size="small">Learn More</Button> */}</CardActions>
     </Card>
   )
 }
 const LiveMediaFeed = () => {
   return (
     <>
-      <Box sx={{ bgcolor: 'secondary.main', mt: '10px', p: '16px' }}>
-        <Typography color={'white'} variant="h2">
-          LIVE MEDIA FEED
-        </Typography>
+      <Box
+        sx={{
+          p: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          backgroundColor: 'primary.light',
+        }}
+        my={3}
+      >
+        <Typography variant="h2">Media Feed</Typography>
+        <LiveMediaFeedCard />
       </Box>
-
-      {/* <Box component="span"> */}
-      {/* <LiveMediaFeedCard /> */}
-      <LiveMediaFeedCard />
-      {/* </Box> */}
     </>
   )
 }
