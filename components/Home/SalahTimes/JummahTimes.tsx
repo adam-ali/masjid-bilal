@@ -15,7 +15,7 @@ function formatDisplayTime(time24: string): string {
   if (Number.isNaN(h) || Number.isNaN(m)) return time24
   const d = new Date()
   d.setHours(h, m, 0, 0)
-  return d.toLocaleTimeString('en-GB', { hour: 'numeric', minute: '2-digit', hour12: true })
+  return d.toLocaleTimeString('en-GB', { hour: 'numeric', minute: '2-digit' })
 }
 
 export default function JummahTimes() {
@@ -44,7 +44,7 @@ export default function JummahTimes() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
+          flexDirection: { xs: 'row', sm: 'row' },
           alignItems: 'stretch',
           justifyContent: 'center',
           width: '100%',
@@ -58,24 +58,31 @@ export default function JummahTimes() {
             sx={{
               flex: 1,
               textAlign: 'center',
-              /* Mobile: equal space above & below each horizontal divider (pt + pb match across sections) */
-              pt: { xs: index === 0 ? 0 : 2, sm: 0 },
               pb: { xs: 2, sm: 0 },
               px: { xs: 0, sm: 1.5 },
-              borderLeft: { xs: 'none', sm: index > 0 ? '1px solid' : 'none' },
-              borderTop: { xs: index > 0 ? '1px solid' : 'none', sm: 'none' },
+              borderLeft: { xs: index > 0 ? '1px solid' : 'none' },
               borderColor: 'rgba(0,0,0,0.12)',
             }}
           >
-            <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', color: 'text.primary', mb: 1.5 }}>
-              {session.label}
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', mb: 0.5 }}>
-              Bayaan {formatDisplayTime(session.bayaan)}
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem' }}>
-              Salah {formatDisplayTime(session.salah)}
-            </Typography>
+            <Box sx={{ m: 1 }}>
+              <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', color: 'text.primary', mb: 1.5 }}>
+                {session.label}
+              </Typography>
+              <Box sx={{ mb: 2 }}>
+                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem', mb: 0.5 }}>
+                  Bayaan
+                </Typography>
+                <Typography sx={{ color: 'text.secondary', fontSize: '1rem', mb: 0.5 }}>
+                  {formatDisplayTime(session.bayaan)}
+                </Typography>
+              </Box>
+              <Box>
+                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem' }}>Salah</Typography>
+                <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>
+                  {formatDisplayTime(session.salah)}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         ))}
       </Box>

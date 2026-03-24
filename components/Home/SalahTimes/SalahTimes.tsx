@@ -1,8 +1,7 @@
 'use client'
 
 import { useMemo, useState, useEffect } from 'react'
-import { Box, Typography, Button } from '@mui/material'
-import { useRouter } from 'next/navigation'
+import { Box, Typography } from '@mui/material'
 import WbTwilightIcon from '@mui/icons-material/WbTwilight'
 
 import { TimeTable, TimeTableType } from '../../../data'
@@ -73,7 +72,6 @@ function getActivePrayerColumnIndex(startMinutes: (number | null)[], now: Date):
 }
 
 const SalahTimes = () => {
-  const router = useRouter()
   const [nowTick, setNowTick] = useState(0)
 
   useEffect(() => {
@@ -159,7 +157,7 @@ const SalahTimes = () => {
                 minHeight: 40,
               }}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', py: 1, minHeight: 40 }}>
+            <Box sx={{ display: 'flex', alignItems: 'end', py: 0.3, minHeight: 40 }}>
               <Typography
                 sx={{
                   fontWeight: 700,
@@ -171,7 +169,7 @@ const SalahTimes = () => {
                 Start
               </Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', py: 1, minHeight: 40 }}>
+            <Box sx={{ display: 'flex', alignItems: 'end', py: 0.3, minHeight: 40 }}>
               <Typography
                 sx={{
                   fontWeight: 700,
