@@ -42,7 +42,7 @@ const PRAYER_COLUMNS: PrayerColumn[] = [
 ]
 
 /** Lighter mint green — reads as “highlight” on `secondary.main` without going white */
-const ACTIVE_COLUMN_BG = '#143703'
+const ACTIVE_COLUMN_BG = '#102704'
 
 /** Minutes from midnight; null if missing/invalid */
 function parseTimeToMinutes(s: string | undefined): number | null {
@@ -223,7 +223,7 @@ const SalahTimes = () => {
                         justifyContent: 'center',
                         gap: 0.5,
                         whiteSpace: 'nowrap',
-                        pl: 6
+                        pl: 6,
                       }}
                     >
                       <WbTwilightIcon
@@ -339,18 +339,6 @@ const SalahTimes = () => {
       {/* Jummuah — full width edge-to-edge on mobile */}
       <Box sx={{ pt: { xs: 2, sm: 3 }, pb: 0 }}>
         <JummahTimes />
-      </Box>
-
-      <Box sx={{ bgcolor: '#ffffff', px: 2, textAlign: 'center' }}>
-        <Button
-          variant="text"
-          color="secondary"
-          disableRipple
-          onClick={() => router.push('/prayer-times')}
-          sx={{ textTransform: 'none' }}
-        >
-          See full prayer time table
-        </Button>
       </Box>
     </Box>
   )

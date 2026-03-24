@@ -54,7 +54,18 @@ const LiveMediaFeed = () => {
         }}
         my={3}
       >
-        <Typography variant="h2">Media Feed</Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: 'center',
+            fontWeight: 700,
+            fontSize: { xs: '1.5rem', sm: '1.75rem' },
+            color: 'text.primary',
+            my: 3,
+          }}
+        >
+          Media Feed
+        </Typography>
         <LiveMediaFeedCard />
       </Box>
     </>

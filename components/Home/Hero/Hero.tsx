@@ -18,6 +18,7 @@ const Hero = () => {
         height: 250,
         overflow: 'hidden',
         color: 'white',
+        mb: 2,
       }}
     >
       <Image
@@ -52,7 +53,7 @@ const Hero = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+        {/* <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
           {hadithNarration}
         </Typography>
 
@@ -62,7 +63,7 @@ const Hero = () => {
 
         <Typography variant="caption" sx={{ opacity: 0.8 }}>
           [Sahih al-Bukhari]
-        </Typography>
+        </Typography> */}
 
         {/* <Button
           variant="contained"

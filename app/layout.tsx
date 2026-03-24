@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation'
 import { Container } from '@mui/material'
 import DrawerAppBar from '../components/Layout/AppBar'
-import InfoBanner from '../components/Layout/InfoBanner'
 import Footer from '../components/Footer/Footer'
 import { Providers } from './providers' // Import our new client provider
 import { GoogleAnalytics } from '@next/third-parties/google' // The new, easy way!
@@ -12,7 +11,7 @@ import '../styles/globals.css'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const hideInfoBanner = pathname === '/masjid-expansion/'
+
 
   return (
     <html lang="en">
@@ -20,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 2. PROVIDERS & LAYOUT! Everything from _app.tsx's body goes here. */}
         <Providers>
           <DrawerAppBar />
-          {!hideInfoBanner && <InfoBanner />}
+          {/* {!hideInfoBanner && <InfoBanner />} */}
           <Container maxWidth="md" sx={{ px: '0' }} className="page-container">
             <div className="content-wrapper">
               {children} {/* This is where your page content will go! */}
