@@ -41,6 +41,9 @@ const PRAYER_COLUMNS: PrayerColumn[] = [
   { key: 'isha', label: 'Isha', start: 'Isha', jamaat: 'ishaJamaat' },
 ]
 
+/** Lighter mint green — reads as “highlight” on `secondary.main` without going white */
+const ACTIVE_COLUMN_BG = '#143703'
+
 /** Minutes from midnight; null if missing/invalid */
 function parseTimeToMinutes(s: string | undefined): number | null {
   if (!s || s === '—') return null
@@ -184,7 +187,7 @@ const SalahTimes = () => {
 
           {PRAYER_COLUMNS.map((col, i) => {
             const active = activeColumnIndex !== null && activeColumnIndex === i
-            const fg = active ? 'secondary.main' : 'common.white'
+            const fg = 'common.white'
 
             return (
               <Box
@@ -270,7 +273,7 @@ const SalahTimes = () => {
                     alignItems: 'center',
                     borderRadius: 2,
                     overflow: 'hidden',
-                    bgcolor: active ? 'common.white' : 'transparent',
+                    bgcolor: active ? ACTIVE_COLUMN_BG : 'transparent',
                     transition: 'background-color 0.35s ease',
                   }}
                 >
