@@ -9,11 +9,7 @@ interface CacheSchema {
   expiry: number
 }
 
-// services/sheetsService.ts
-const SHEET_ID = '1XO7nQj6Wj1AyrCdW-9xR8fPNWAorOB7JZ773S3VRh88'
-const API_KEY = 'AIzaSyAWLCTnZARrtmoFb1clU_CCdgLHd7xpruw'
 const RANGE = 'Sheet1!A2:B5' // Adjust to your data range
-
 const CACHE_KEY = 'mosque_construction_funds'
 const CACHE_DURATION = 10 * 60 * 1000
 
@@ -29,7 +25,7 @@ export const fetchSheetData = async (): Promise<ConstructionFunds> => {
     }
   }
   console.log('No cached data found, fetching from API')
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/${RANGE}?key=${process.env.SHEET_API_KEY}`
 
   try {
     const response = await fetch(url)
