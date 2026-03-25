@@ -25,7 +25,7 @@ export const fetchSheetData = async (): Promise<ConstructionFunds> => {
     }
   }
   console.log('No cached data found, fetching from API')
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/${RANGE}?key=${process.env.SHEET_API_KEY}`
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${process.env.NEXT_PUBLIC_SHEET_ID}/values/${RANGE}?key=${process.env.NEXT_PUBLIC_SHEET_API_KEY}`
 
   try {
     const response = await fetch(url)
