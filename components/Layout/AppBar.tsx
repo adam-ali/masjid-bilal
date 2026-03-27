@@ -65,7 +65,7 @@ export default function DrawerAppBar(props: Props) {
       <AppBar component="nav" position="static" color="primary" sx={{ backgroundColor: '#000' }}>
         <Container maxWidth="md" sx={{ px: '0' }}>
           <Toolbar>
-            <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+            <Grid style={{ display: 'flex' }} sx={{ flexGrow: 1 }}>
               <Image
                 src={MasjideBilal}
                 onClick={() => router.push('/')}
@@ -77,27 +77,14 @@ export default function DrawerAppBar(props: Props) {
             <Button
               variant="contained"
               disableRipple
-              sx={{ backgroundColor: '#fff', color: '#000', mx: 2,display: { sm: 'none' } }}
+              sx={{ backgroundColor: '#fff', color: '#000', mx: 2 }}
               onClick={() => router.push('/masjid-expansion')}
             >
               Donate
             </Button>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"  
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ display: { sm: 'none' } }}
-            >
+            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle}>
               <MenuIcon />
             </IconButton>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {navItems.map((item) => (
-                <Button key={item.name} sx={{ color: '#fff' }} onClick={() => router.push(item.route)}>
-                  {item.name}
-                </Button>
-              ))}
-            </Box>
           </Toolbar>
         </Container>
       </AppBar>
@@ -112,7 +99,6 @@ export default function DrawerAppBar(props: Props) {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
