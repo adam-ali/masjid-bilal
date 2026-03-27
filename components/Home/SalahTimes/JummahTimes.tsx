@@ -2,12 +2,12 @@
 
 import { Box, Typography } from '@mui/material'
 
-type JummahSession = { label: string; bayaan: string; salah: string }
+type JummahSession = { label: string; khutbah: string; salah: string }
 
 const JUMMAH_SESSIONS: JummahSession[] = [
-  { label: 'First', bayaan: '12:30', salah: '12:45' },
-  { label: 'Second', bayaan: '13:05', salah: '13:20' },
-  { label: 'Third', bayaan: '13:35', salah: '13:50' },
+  { label: 'First', khutbah: '13:30', salah: '13:45' },
+  { label: 'Second', khutbah: '14:15', salah: '14:25' },
+  { label: 'Third', khutbah: '14:40', salah: '14:50' },
 ]
 
 function formatDisplayTime(time24: string): string {
@@ -70,14 +70,14 @@ export default function JummahTimes() {
               </Typography>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem', mb: 0.5 }}>
-                  Bayaan
+                  khutbah
                 </Typography>
                 <Typography sx={{ color: 'text.secondary', fontSize: '1rem', mb: 0.5 }}>
-                  {formatDisplayTime(session.bayaan)}
+                  {formatDisplayTime(session.khutbah)}
                 </Typography>
               </Box>
               <Box>
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem' }}>Salah</Typography>
+                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem' }}>Salah finishes</Typography>
                 <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>
                   {formatDisplayTime(session.salah)}
                 </Typography>

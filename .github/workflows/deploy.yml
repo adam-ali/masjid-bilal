@@ -27,8 +27,8 @@ jobs:
       # 3. Install & Build React App (Root folder)
       - name: Install & Build React
         env: 
-          NEXT_PUBLIC_SHEET_API_KEY: ${{ secrets.NEXT_PUBLIC_SHEET_API_KEY }}
-          NEXT_PUBLIC_SHEET_ID: ${{ secrets.NEXT_PUBLIC_SHEET_ID }}
+          NEXT_PUBLIC_SHEET_API_KEY: ${{ secrets.SHEET_API_KEY }}
+          NEXT_PUBLIC_SHEET_ID: ${{ secrets.SHEET_ID }}
         run: |
           echo "📦 Building React app..."
           yarn install --frozen-lockfile
