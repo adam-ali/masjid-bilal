@@ -1392,10 +1392,10 @@ export default [
     Month: '3',
   },
   {
-    Isha: '20:08',
-    Asar: '16:35',
-    Zuhar: '12:19',
-    Fajar: '4:11',
+    Isha: '21:08',
+    Asar: '17:35',
+    Zuhar: '13:19',
+    Fajar: '5:11',
     Sunrise: '6:49',
     ishaJamaat: '21:30',
     maghribJamaat: '19:43',
@@ -1408,7 +1408,7 @@ export default [
     Month: '3',
   },
   {
-    Isha: '20:09',
+    Isha: '21:09',
     Asar: '17:36',
     Zuhar: '13:18',
     Fajar: '5:08',
