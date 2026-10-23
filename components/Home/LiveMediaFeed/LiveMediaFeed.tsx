@@ -45,6 +45,7 @@ const LiveMediaFeed = () => {
     <>
       <Box
         sx={{
+          my: 3,
           p: 2,
           display: 'flex',
           flexDirection: 'column',
@@ -52,7 +53,6 @@ const LiveMediaFeed = () => {
           alignItems: 'center',
           backgroundColor: 'primary.light',
         }}
-        my={3}
       >
         <Typography
           variant="h2"

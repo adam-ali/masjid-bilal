@@ -1,6 +1,8 @@
-/* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+/* Preflight (base) is intentionally omitted, matching the previous setup. Only components/ is scanned for classes. */
+@layer theme, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+@source '../components';
 * {
   box-sizing: border-box;
   padding: 0;
@@ -57,9 +59,6 @@ a {
   background-color: #cef2d8;
 } */
 
-.todaysDate {
-  background-color: #cef2d8;
-}
 .M-bilal-img {
   width: 122%;
 }

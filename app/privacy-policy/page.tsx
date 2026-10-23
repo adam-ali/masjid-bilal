@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function privacyPolicy() {
   return (
-    <Box display={'flex'} flexDirection={'column'} gap={2} sx={{ p: '16px' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, p: '16px' }}>
       <Typography variant="h2">Privacy Policy for Masjid E Bilal</Typography>
       <Typography variant="body1">Effective Date: 31/03/2024</Typography>
       <Typography variant="body2">

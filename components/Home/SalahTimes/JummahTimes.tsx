@@ -5,9 +5,9 @@ import { Box, Typography } from '@mui/material'
 type JummahSession = { label: string; khutbah: string; salah: string }
 
 const JUMMAH_SESSIONS: JummahSession[] = [
-  { label: 'First', khutbah: '13:30', salah: '13:45' },
-  { label: 'Second', khutbah: '14:15', salah: '14:25' },
-  { label: 'Third', khutbah: '14:40', salah: '14:50' },
+  { label: 'First', khutbah: '12:05', salah: '12:15' },
+  { label: 'Second', khutbah: '12:45', salah: '13:00' },
+  { label: 'Third', khutbah: '13:30', salah: '13:45' },
 ]
 
 function formatDisplayTime(time24: string): string {

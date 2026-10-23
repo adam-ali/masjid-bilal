@@ -25,14 +25,14 @@ function BankDetailRow({ icon, title, subtitle }: { icon: React.ReactNode; title
 
   return (
     <>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ p: 2 }}>
-        <Stack direction="row" alignItems="center" spacing={2}>
+      <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', p: 2 }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
           {icon}
           <Box>
-            <Typography color="text.secondary" variant="body2">
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               {title}
             </Typography>
-            <Typography fontWeight="500" variant="body1">
+            <Typography variant="body1" sx={{ fontWeight: '500' }}>
               {subtitle}
             </Typography>
           </Box>
@@ -57,7 +57,7 @@ export default function DonationsPage() {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', p: 4, color: 'secondary.contrastText' }}>
-        <Stack direction="row" spacing={2} alignItems="center">
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
           <VolunteerActivismIcon sx={{ fontSize: 40 }} />
           <Box>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
@@ -73,18 +73,18 @@ export default function DonationsPage() {
       <Box sx={{ p: { xs: 2, md: 4 }, display: 'flex', justifyContent: 'center' }}>
         <Stack spacing={4} sx={{ maxWidth: '600px', width: '100%' }}>
           <Paper variant="outlined" sx={{ p: 3, textAlign: 'center', borderColor: 'divider', bgcolor: 'action.hover' }}>
-            <Stack spacing={1} alignItems="center">
+            <Stack spacing={1} sx={{ alignItems: 'center' }}>
               <FormatQuoteIcon color="secondary" />
               <Typography variant="h6" sx={{ fontStyle: 'italic', color: 'text.secondary' }}>
                 "Charity does not decrease wealth."
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" sx={{ color: 'text.secondary' }}>
                 - Prophet Muhammad (ﷺ) [Sahih Muslim]
               </Typography>
             </Stack>
           </Paper>
 
-          <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap" useFlexGap>
+          <Stack direction="row" spacing={2} useFlexGap sx={{ justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button
               component="a"
               href={PAYPAL_DONATE_URL}

@@ -16,7 +16,7 @@ const Footer = () => {
         </Typography>
 
         <Stack spacing={2}>
-          <Stack direction="row" alignItems="flex-start" spacing={2}>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
             <LocationOnIcon sx={{ mt: 0.5 }} />
             <Box>
               <Typography variant="body1">52 Bury Old Road</Typography>
@@ -24,14 +24,14 @@ const Footer = () => {
             </Box>
           </Stack>
 
-          <Stack direction="row" alignItems="center" spacing={2}>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <PhoneIcon />
             <Link href="tel:01617402125" color="inherit" underline="hover">
               <Typography variant="body1">0161 740 2125</Typography>
             </Link>
           </Stack>
 
-          <Stack direction="row" alignItems="center" spacing={2}>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <EmailIcon />
             <Link href="mailto:info@masjidebilal.co.uk" color="inherit" underline="hover">
               <Typography variant="body1">info@masjidebilal.co.uk</Typography>
@@ -39,7 +39,7 @@ const Footer = () => {
           </Stack>
         </Stack>
 
-        <Stack direction="row" alignItems="center" spacing={2} sx={{ mt: 2 }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', mt: 2 }}>
           <PolicyIcon />
           <Link
             component="button"
