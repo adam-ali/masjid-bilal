@@ -1,14 +1,24 @@
 'use client'
 
 import { Box, Typography } from '@mui/material'
+import { Fragment } from 'react'
 
-type JummahSession = { label: string; khutbah: string; salah: string }
+type JummahSession = { label: string; bayan: string; khutbah: string; salah: string }
 
 const JUMMAH_SESSIONS: JummahSession[] = [
-  { label: 'First', khutbah: '12:05', salah: '12:15' },
-  { label: 'Second', khutbah: '12:45', salah: '13:00' },
-  { label: 'Third', khutbah: '13:30', salah: '13:45' },
+  { label: 'First', bayan: '11:45', khutbah: '12:05', salah: '12:15' },
+  { label: 'Second', bayan: '12:30', khutbah: '12:45', salah: '13:00' },
+  { label: 'Third', bayan: '13:15', khutbah: '13:30', salah: '13:45' },
 ]
+
+const ROWS: [string, 'bayan' | 'khutbah' | 'salah'][] = [
+  ['Bayan', 'bayan'],
+  ['Khutbah', 'khutbah'],
+  ['Salah\nfinishes', 'salah'],
+]
+
+const CELL = { py: 1.5, px: 1, display: 'flex', alignItems: 'center' }
+const SESSION_CELL = { ...CELL, justifyContent: 'center', borderLeft: '1px solid rgba(0,0,0,0.12)' }
 
 function formatDisplayTime(time24: string): string {
   const [h, m] = time24.split(':').map(Number)
@@ -43,47 +53,31 @@ export default function JummahTimes() {
 
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'row', sm: 'row' },
-          alignItems: 'stretch',
-          justifyContent: 'center',
-          width: '100%',
-          maxWidth: { xs: 'none', sm: 720 },
-          mx: { xs: 0, sm: 'auto' },
+          display: 'grid',
+          gridTemplateColumns: 'auto repeat(3, 1fr)',
+          columnGap: 0,
+          textAlign: 'center',
+          maxWidth: 720,
+          mx: 'auto',
         }}
       >
-        {JUMMAH_SESSIONS.map((session, index) => (
-          <Box
-            key={session.label}
-            sx={{
-              flex: 1,
-              textAlign: 'center',
-              pb: { xs: 2, sm: 0 },
-              px: { xs: 0, sm: 1.5 },
-              borderLeft: { xs: index > 0 ? '1px solid' : 'none' },
-              borderColor: 'rgba(0,0,0,0.12)',
-            }}
-          >
-            <Box sx={{ m: 1 }}>
-              <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', color: 'text.primary', mb: 1.5 }}>
-                {session.label}
+        <Box sx={CELL} />
+        {JUMMAH_SESSIONS.map((s) => (
+          <Typography key={s.label} sx={{ fontWeight: 700, fontSize: '1.05rem', color: 'text.primary', ...SESSION_CELL }}>
+            {s.label}
+          </Typography>
+        ))}
+        {ROWS.map(([label, key]) => (
+          <Fragment key={key}>
+            <Typography sx={{ ...CELL, color: 'text.secondary', fontWeight: 600, fontSize: '1rem', textAlign: 'left', whiteSpace: 'pre-line' }}>
+              {label}
+            </Typography>
+            {JUMMAH_SESSIONS.map((s) => (
+              <Typography key={s.label} sx={{ ...SESSION_CELL, color: 'text.secondary', fontSize: '1rem' }}>
+                {formatDisplayTime(s[key])}
               </Typography>
-              <Box sx={{ mb: 2 }}>
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem', mb: 0.5 }}>
-                  khutbah
-                </Typography>
-                <Typography sx={{ color: 'text.secondary', fontSize: '1rem', mb: 0.5 }}>
-                  {formatDisplayTime(session.khutbah)}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '1rem' }}>Salah finishes</Typography>
-                <Typography sx={{ color: 'text.secondary', fontSize: '1rem' }}>
-                  {formatDisplayTime(session.salah)}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
+            ))}
+          </Fragment>
         ))}
       </Box>
     </Box>

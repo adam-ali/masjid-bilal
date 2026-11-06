@@ -41,6 +41,8 @@ export default function JummahPopup() {
               size="small"
               sx={{
                 px: 2,
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
                 borderRadius: 8,
                 fontWeight: 700,
                 textTransform: 'none',
@@ -67,7 +69,9 @@ export default function JummahPopup() {
         >
           <CloseIcon fontSize="small" />
         </IconButton>
-        Donate to the Masjid Bilal new masjid project this Jummah
+        Donate to the Masjid Bilal Construction Project
+
+
       </Alert>
     </Snackbar>
   )
