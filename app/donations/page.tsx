@@ -11,7 +11,7 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import ConstructionIcon from '@mui/icons-material/Construction'
 
-const PAYPAL_DONATE_URL = 'https://www.paypal.com/ncp/payment/6SP9M7KN2F4U2'
+const CONSTRUCTION_DONATE_URL = 'https://bit.ly/m/bilaldonate'
 const SQUARE_DONATE_URL = 'https://square.link/u/oqzchKUK'
 
 // BankDetailRow component (no changes needed here)
@@ -84,87 +84,40 @@ export default function DonationsPage() {
             </Stack>
           </Paper>
 
-          <Stack direction="row" spacing={2} useFlexGap sx={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button
-              component="a"
-              href={PAYPAL_DONATE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="contained"
-              color="secondary"
-              sx={{
-                width: 130,
-                height: 130,
-                minWidth: 130,
-                minHeight: 130,
-                borderRadius: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 1,
-                boxShadow: '0 4px 14px 0 rgba(27, 72, 5, 0.25)',
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 600,
-                transition: 'all 0.2s ease-in-out',
-                '&:hover': {
-                  boxShadow: '0 6px 20px 0 rgba(27, 72, 5, 0.35)',
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              <ConstructionIcon sx={{ fontSize: 36, opacity: 0.95 }} />
-              <Typography
-                component="span"
-                sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}
+          <Stack spacing={2}>
+            {[
+              { href: CONSTRUCTION_DONATE_URL, icon: <ConstructionIcon />, label: 'Donate to the New Construction Project', sub: 'Donate online' },
+              { href: SQUARE_DONATE_URL, icon: <CreditCardIcon />, label: 'Masjid Bilal Operational Costs', sub: 'Donate via Square' },
+            ].map(({ href, icon, label, sub }) => (
+              <Button
+                key={href}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="contained"
+                color="secondary"
+                size="large"
+                fullWidth
+                startIcon={icon}
+                sx={{
+                  py: 2,
+                  px: 3,
+                  justifyContent: 'flex-start',
+                  '& .MuiButton-startIcon': { mr: 2, '& > *:first-of-type': { fontSize: 28 } },
+                  borderRadius: 8,
+                  textTransform: 'none',
+                  boxShadow: '0 4px 14px 0 rgba(27, 72, 5, 0.25)',
+                  transition: 'all 0.2s ease-in-out',
+                  '&:hover': { boxShadow: '0 6px 20px 0 rgba(27, 72, 5, 0.35)', transform: 'translateY(-2px)' },
+                }}
               >
-                New Construction Project
-              </Typography>
-              <Typography component="span" sx={{ fontWeight: 500, fontSize: '0.7rem', opacity: 0.95 }}>
-                Donate via PayPal
-              </Typography>
-            </Button>
-            <Button
-              component="a"
-              href={SQUARE_DONATE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="contained"
-              color="secondary"
-              sx={{
-                width: 130,
-                height: 130,
-                minWidth: 130,
-                minHeight: 130,
-                borderRadius: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 1,
-                boxShadow: '0 4px 14px 0 rgba(27, 72, 5, 0.25)',
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 600,
-                transition: 'all 0.2s ease-in-out',
-                '&:hover': {
-                  boxShadow: '0 6px 20px 0 rgba(27, 72, 5, 0.35)',
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              <CreditCardIcon sx={{ fontSize: 36, opacity: 0.95 }} />
-              <Typography
-                component="span"
-                sx={{ fontWeight: 600, fontSize: '0.75rem', textAlign: 'center', lineHeight: 1.2 }}
-              >
-                Masjid Bilal Operational Costs
-              </Typography>
-              <Typography component="span" sx={{ fontWeight: 500, fontSize: '0.7rem', opacity: 0.95 }}>
-                Donate via Square
-              </Typography>
-            </Button>
+                <Box sx={{ textAlign: 'left' }}>
+                  <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', lineHeight: 1.2 }}>{label}</Typography>
+                  <Typography sx={{ fontSize: '0.8rem', opacity: 0.9 }}>{sub}</Typography>
+                </Box>
+              </Button>
+            ))}
           </Stack>
 
           <Paper elevation={4} sx={{ borderRadius: 2, width: '100%' }}>

@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { Container } from '@mui/material'
 import DrawerAppBar from '../components/Layout/AppBar'
+import JummahPopup from '../components/JummahPopup/JummahPopup'
 import Footer from '../components/Footer/Footer'
 import { Providers } from './providers' // Import our new client provider
 import { GoogleAnalytics } from '@next/third-parties/google' // The new, easy way!
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <Footer />
           </Container> 
+          <JummahPopup />
         </Providers>
 
         {/* 3. SCRIPT UPGRADES! All scripts are handled cleanly. */}
