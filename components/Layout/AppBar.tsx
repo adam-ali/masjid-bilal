@@ -9,6 +9,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
+import ConstructionIcon from '@mui/icons-material/Construction'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -47,13 +48,29 @@ export default function DrawerAppBar(props: Props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => router.push(item.route)}>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navItems.map((item) => {
+          const featured = item.route === '/masjid-expansion'
+          return (
+            <ListItem key={item.name} disablePadding sx={featured ? { px: 1.5, py: 0.5 } : undefined}>
+              <ListItemButton
+                sx={{
+                  textAlign: 'center',
+                  ...(featured && {
+                    borderRadius: 2,
+                    bgcolor: 'secondary.main',
+                    color: 'common.white',
+                    boxShadow: '0 2px 8px rgba(27, 72, 5, 0.35)',
+                    '&:hover': { bgcolor: 'secondary.dark' },
+                  }),
+                }}
+                onClick={() => router.push(item.route)}
+              >
+                {featured && <ConstructionIcon fontSize="small" sx={{ mr: 1 }} />}
+                <ListItemText primary={item.name} slotProps={featured ? { primary: { sx: { fontWeight: 700 } } } : undefined} />
+              </ListItemButton>
+            </ListItem>
+          )
+        })}
       </List>
     </Box>
   )
