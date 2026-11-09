@@ -1,7 +1,11 @@
 'use client'
-import { Box, Typography, Button, Paper } from '@mui/material'
+import { Box, Typography, Button, Paper, Link, Stack } from '@mui/material'
 import MapIcon from '@mui/icons-material/Map'
 import DirectionsIcon from '@mui/icons-material/Directions'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
+import PhoneIcon from '@mui/icons-material/Phone'
+import SmsIcon from '@mui/icons-material/Sms'
+import EmailIcon from '@mui/icons-material/Email'
 
 function contact() {
   const address = '52 Bury Old Road, Prestwich, Manchester M25 0ER'
@@ -9,7 +13,7 @@ function contact() {
   const addressUrl = encodeURIComponent(address)
 
   return (
-    <Paper elevation={4} sx={{ overflow: 'hidden', maxWidth: 800, margin: 'auto' }}>
+    <Paper elevation={1} sx={{ overflow: 'hidden', maxWidth: 800, margin: 'auto', borderRadius: 0 }}>
       <Box
         sx={{
           bgcolor: 'secondary.main',
@@ -20,10 +24,37 @@ function contact() {
           gap: 1.5,
         }}
       >
-        <MapIcon fontSize="large" />
+        {/* <MapIcon fontSize="large" /> */}
         <Typography variant="h3" sx={{ fontWeight: 'normal' }}>
-          FIND US
+          GET IN TOUCH
         </Typography>
+      </Box>
+
+      <Box sx={{ p: 2 }}>
+        <Stack spacing={2}>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
+            <LocationOnIcon color="secondary" sx={{ mt: 0.5 }} />
+            <Typography variant="body1">{address}</Typography>
+          </Stack>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+            <PhoneIcon color="secondary" />
+            <Link href="tel:01617402125" color="inherit" underline="hover">
+              <Typography variant="body1">0161 740 2125</Typography>
+            </Link>
+          </Stack>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+            <SmsIcon color="secondary" />
+            <Link href="sms:+447874476885" color="inherit" underline="hover">
+              <Typography variant="body1">+44 7874 476885 (text messages only)</Typography>
+            </Link>
+          </Stack>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+            <EmailIcon color="secondary" />
+            <Link href="mailto:info@masjidebilal.co.uk" color="inherit" underline="hover">
+              <Typography variant="body1">info@masjidebilal.co.uk</Typography>
+            </Link>
+          </Stack>
+        </Stack>
       </Box>
 
       {/* === THE REAL, LIVE MAP! === */}

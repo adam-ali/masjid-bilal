@@ -6,7 +6,7 @@ function about() {
   return (
     <>
       <Box sx={{ bgcolor: 'secondary.main', display: 'flex', justifyContent: 'space-between', p: '16px' }}>
-        <Typography color={'white'} sx={{ fontWeight: 'bold' }} variant="h2">
+        <Typography sx={{ color: 'white', fontWeight: 'bold' }} variant="h2">
           ABOUT US
         </Typography>
       </Box>
